@@ -1,0 +1,149 @@
+package org.grupogjl.state;
+
+import mockit.Mock;
+import mockit.MockUp;
+import org.grupogjl.Game;
+import org.grupogjl.controller.ControllerGame;
+import org.grupogjl.gui.GeneralGui;
+import org.grupogjl.gui.LanternaGui;
+import org.grupogjl.model.game.elements.Mario;
+import org.grupogjl.model.game.elements.level.Level;
+import org.grupogjl.viewer.Viewer;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+import static com.github.stefanbirkner.systemlambda.SystemLambda.catchSystemExit;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
+
+class StateGameTest {
+
+    private StateGame stateGame;
+    private LanternaGui mockGui;
+    private Game mockGame;
+    private Viewer mockViewer;
+
+    @BeforeEach
+    void setUp() throws IOException {
+        mockGui = mock(LanternaGui.class);
+        mockGame = mock(Game.class);
+        mockViewer = mock(Viewer.class);
+
+        stateGame = new StateGame();
+        stateGame.setViewer(mockViewer); // Replace real ViewerGame with a mock
+    }
+
+    @Test
+    void testInitialState() {
+        assertThat(stateGame.getState()).isEqualTo(2);
+        assertThat(stateGame.isGameOver()).isFalse();
+    }
+
+    @Test
+    void testGetAndSetLevel() {
+        Level mockLevel = mock(Level.class);
+        stateGame.setLevel(mockLevel);
+        assertThat(stateGame.getLevel()).isSameAs(mockLevel);
+    }
+
+    @Test
+    void testDraw() throws IOException {
+        stateGame.draw(mockGui);
+        verify(mockViewer).draw(stateGame, mockGui); // Verify interaction with the mock viewer
+    }
+
+    @Test
+    void testDrawThrowsRuntimeException() throws IOException {
+        GeneralGui mockGui = mock(GeneralGui.class);
+        Viewer mockViewer = mock(Viewer.class);
+        stateGame.setViewer(mockViewer);
+
+        // Simulate IOException being thrown
+        doThrow(new IOException("Test Exception")).when(mockViewer).draw(eq(stateGame), eq(mockGui));
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> stateGame.draw(mockGui));
+        assertThat(exception.getMessage()).isEqualTo("java.io.IOException: Test Exception");
+    }
+
+    @Test
+    void testGetModel() {
+        Level mockLevel = mock(Level.class);
+        stateGame.setLevel(mockLevel);
+
+        Level result = stateGame.getModel();
+
+        assertThat(result).isEqualTo(mockLevel);
+    }
+
+    @Test
+    void testSetGameOver() {
+        stateGame.setGameOver(true);
+        assertThat(stateGame.isGameOver()).isTrue();
+
+        stateGame.setGameOver(false);
+        assertThat(stateGame.isGameOver()).isFalse();
+    }
+
+    @Test
+    void testStep() throws IOException {
+        ControllerGame mockController = mock(ControllerGame.class);
+        stateGame.setController(mockController);
+
+        when(mockGui.getNextAction()).thenReturn(LanternaGui.ACTION.UP);
+
+        stateGame.step(mockGame, mockGui, 12345L);
+
+        verify(mockController).step(mockGame, LanternaGui.ACTION.UP, 12345L);
+        verify(mockViewer).draw(stateGame, mockGui);
+        verify(mockGui).refresh();
+    }
+
+    @Test
+    void testResetLevel() throws IOException {
+        Mario mario = stateGame.getLevel().getMario(); // Use real Mario instance
+        Level initialLevel = stateGame.getLevel();
+
+        stateGame.resetLevel();
+
+        assertThat(stateGame.getLevel()).isNotSameAs(initialLevel); // New level is created
+        assertThat(mario.getX()).isEqualTo(0);
+        assertThat(mario.getY()).isEqualTo(0);
+    }
+
+    @Test
+    void testNextLevel() throws IOException {
+        Mario mario = stateGame.getLevel().getMario();
+        int initialLevelNumber = stateGame.getLeveln();
+
+        stateGame.nextLevel();
+
+        assertThat(stateGame.getLeveln()).isEqualTo(initialLevelNumber + 1); // Level number increments
+        assertThat(mario.getX()).isEqualTo(0);
+        assertThat(mario.getY()).isEqualTo(0);
+    }
+
+//    @Test
+//    void testNextLevelExitsWhenMaxLevelReached() throws IOException {
+//        // Mock System.exit using JMockit
+//        new MockUp<System>() {
+//            @Mock
+//            public void exit(int status) {
+//                throw new RuntimeException(String.valueOf(status));
+//            }
+//        };
+//
+//        stateGame.nextLevel(); // Move to level 2
+//
+//        // Call nextLevel to trigger System.exit(0)
+//        RuntimeException exception = assertThrows(RuntimeException.class, stateGame::nextLevel);
+//
+//        // Assert that System.exit(0) was called
+//        assertEquals("0", exception.getMessage());
+//    }
+
+}
