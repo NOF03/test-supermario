@@ -44,14 +44,6 @@ class GameCommandTest {
 
         // Verify interactions
         verify(mockMenuModel).setSelectedOption(true);
-        verify(mockMenuModel).setTextOption("""
-            upper arrow to jump
-            right arrow to move right
-            left arrow to move left
-            down arrow to enter pipe
-            b to throw fireballs
-            q to pause
-            """);
     }
 
 

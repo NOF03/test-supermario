@@ -6,7 +6,8 @@ import org.grupogjl.model.game.elements.generalobjects.StaticObject;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class EnemyTest {
 
@@ -109,6 +110,11 @@ class EnemyTest {
 
         // Collision from the right
         enemy.handleCollision(staticObject, 'R');
+        assertThat(enemy.getX()).isEqualTo(0.0f);
+        assertThat(enemy.getVx()).isEqualTo(0.0f);
+
+        // Collision from no key
+        enemy.handleCollision(staticObject, 'A');
         assertThat(enemy.getX()).isEqualTo(0.0f);
         assertThat(enemy.getVx()).isEqualTo(0.0f);
     }

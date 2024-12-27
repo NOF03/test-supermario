@@ -1,6 +1,6 @@
 package org.grupogjl.model.game.elements.surprises;
 
-import org.grupogjl.model.game.elements.generalobjects.GameObject;
+import org.grupogjl.model.game.elements.generalobjects.PhysicalObject;
 import org.grupogjl.model.game.elements.generalobjects.StaticObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -72,5 +72,27 @@ class MushroomTest {
 
         assertThat(mushroom.getX()).isEqualTo(15 - mushroom.getWidth());
         assertThat(mushroom.getVx()).isEqualTo(-0.2f);
+    }
+
+    @Test
+    void testHandleCollisionWithStaticObjectOtherDirection() {
+        StaticObject mockStaticObject = mock(StaticObject.class);
+        when(mockStaticObject.getX()).thenReturn(15f);
+
+        mushroom.handleCollision(mockStaticObject, 'A');
+
+        assertThat(mushroom.getX()).isEqualTo(10);
+        assertThat(mushroom.getVx()).isEqualTo(0.0f);
+    }
+
+    @Test
+    void testHandleCollisionWithStaticObjectNotStatic() {
+        PhysicalObject mockStaticObject = mock(PhysicalObject.class);
+        when(mockStaticObject.getX()).thenReturn(15f);
+
+        mushroom.handleCollision(mockStaticObject, 'R');
+
+        assertThat(mushroom.getX()).isEqualTo(10);
+        assertThat(mushroom.getVx()).isEqualTo(0.0f);
     }
 }

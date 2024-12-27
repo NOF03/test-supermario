@@ -140,6 +140,23 @@ class LanternaGuiTest {
     }
 
     @Test
+    void testDrawMenuImageWithTransparentPixels() {
+        BufferedImage mockImage = mock(BufferedImage.class);
+        when(mockImage.getWidth()).thenReturn(2);
+        when(mockImage.getHeight()).thenReturn(2);
+        when(mockImage.getRGB(anyInt(), anyInt())).thenReturn(0x00FFFFFF); // Fully transparent pixel
+        when(mockSpriteBuilder.loadImage("test.png")).thenReturn(mockImage);
+
+        gui.drawMenuImage(2, 3, "test.png");
+
+        // Verify the image is loaded
+        verify(mockSpriteBuilder).loadImage("test.png");
+
+        // Verify that no pixel is drawn (since all are transparent)
+        verify(mockTextGraphics, never()).putString(anyInt(), anyInt(), anyString());
+    }
+
+    @Test
     void testDrawGameOver() throws IOException {
         gui.drawGameOver();
 

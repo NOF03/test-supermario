@@ -61,7 +61,7 @@ class LoaderLevelBuilderTest {
         LoaderLevelBuilder builder = new LoaderLevelBuilder(1) {
             @Override
             public List<String> readLines(BufferedReader br) throws IOException {
-                return List.of("#$+?", "uvwxyz", "pg");
+                return List.of("#$+?", "uvwxyz", "pg", "a");
             }
         };
 

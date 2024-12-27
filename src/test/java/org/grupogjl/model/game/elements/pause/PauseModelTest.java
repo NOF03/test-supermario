@@ -1,7 +1,5 @@
 package org.grupogjl.model.game.elements.pause;
 
-import org.grupogjl.commands.ExitToMenuCommand;
-import org.grupogjl.commands.ResumeCommand;
 import org.grupogjl.model.game.elements.buttons.Button;
 import org.junit.jupiter.api.Test;
 

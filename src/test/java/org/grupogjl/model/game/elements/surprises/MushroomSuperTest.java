@@ -36,6 +36,32 @@ class MushroomSuperTest {
     }
 
     @Test
+    void testActivateWhenMarioIsNotBigAndFire() {
+        MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
+        Mario mockMario = mock(Mario.class);
+        when(mockMario.isStateBig()).thenReturn(false);
+        when(mockMario.isStateFire()).thenReturn(true);
+
+        mushroomSuper.activate(mockMario);
+
+        verify(mockMario, never()).setStateBig(anyBoolean());
+        verify(mockMario, never()).setHeight(anyInt());
+    }
+
+    @Test
+    void testActivateWhenMarioIsBigAndNotFire() {
+        MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
+        Mario mockMario = mock(Mario.class);
+        when(mockMario.isStateBig()).thenReturn(true);
+        when(mockMario.isStateFire()).thenReturn(false);
+
+        mushroomSuper.activate(mockMario);
+
+        verify(mockMario, never()).setStateBig(anyBoolean());
+        verify(mockMario, never()).setHeight(anyInt());
+    }
+
+    @Test
     void testGetVirtX() {
         MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
         Camera mockCamera = mock(Camera.class);

@@ -2,7 +2,6 @@ package org.grupogjl.model.game.elements.props;
 
 import org.grupogjl.model.game.elements.camera.Camera;
 import org.grupogjl.model.game.elements.enemies.Enemy;
-import org.grupogjl.model.game.elements.generalobjects.GameObject;
 import org.grupogjl.model.game.elements.generalobjects.StaticObject;
 import org.junit.jupiter.api.Test;
 
@@ -94,6 +93,19 @@ class FireBallTest {
         // Verify changes
         assertThat(fireBall.getX()).isEqualTo(15 - fireBall.getWidth());
         assertThat(fireBall.isActive()).isFalse();
+    }
+
+    @Test
+    void testHandleCollisionWithStaticObjectNoKey() {
+        FireBall fireBall = new FireBall(10, 20);
+        StaticObject mockStaticObject = mock(StaticObject.class);
+        when(mockStaticObject.getX()).thenReturn(15f);
+
+        // Handle collision from the right
+        fireBall.handleCollision(mockStaticObject, 'A');
+
+        // Verify changes
+        assertThat(fireBall.getX()).isEqualTo(10);
     }
 
     @Test

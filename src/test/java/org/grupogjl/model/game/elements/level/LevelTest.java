@@ -83,6 +83,144 @@ class LevelTest {
     }
 
     @Test
+    void testGetDestroyableBlocks() {
+        Level level = new Level(100, 50);
+        List<GameObject> objects = new ArrayList<>();
+        DestroyableBlock destroyableBlock = mock(DestroyableBlock.class);
+        objects.add(destroyableBlock);
+        objects.add(mock(GameObject.class));
+        level.setObjects(objects);
+
+        List<DestroyableBlock> result = level.getDestroyableBlocks();
+
+        assertThat(result).containsExactly(destroyableBlock);
+    }
+
+    @Test
+    void testGetSurpriseBlocks() {
+        Level level = new Level(100, 50);
+        List<GameObject> objects = new ArrayList<>();
+        SurpriseBlock surpriseBlock = mock(SurpriseBlock.class);
+        objects.add(surpriseBlock);
+        objects.add(mock(GameObject.class));
+        level.setObjects(objects);
+
+        List<SurpriseBlock> result = level.getSurpriseBlocks();
+
+        assertThat(result).containsExactly(surpriseBlock);
+    }
+
+    @Test
+    void testGetEnemies() {
+        Level level = new Level(100, 50);
+        List<GameObject> objects = new ArrayList<>();
+        Enemy enemy = mock(Enemy.class);
+        objects.add(enemy);
+        objects.add(mock(GameObject.class));
+        level.setObjects(objects);
+
+        List<Enemy> result = level.getEnemies();
+
+        assertThat(result).containsExactly(enemy);
+    }
+
+    @Test
+    void testSetEnemies() {
+        Enemy newEnemy = mock(Enemy.class);
+        Enemy enemy = mock(Enemy.class);
+        Level level = new Level(100, 50);
+
+        List<GameObject> objects = new ArrayList<>();
+        objects.add(enemy);
+        objects.add(mock(GameObject.class));
+        level.setObjects(objects);
+
+        List<Enemy> newEnemies = List.of(newEnemy);
+        level.setEnemies(newEnemies);
+
+        List<GameObject> updatedObjects = level.getObjects();
+        assertThat(updatedObjects).contains(newEnemy).doesNotContain(enemy);
+    }
+
+    @Test
+    void testGetSurprises() {
+        List<GameObject> objects = new ArrayList<>();
+        Level level = new Level(100, 50);
+        Surprise surprise = mock(Surprise.class);
+        objects.add(mock(GameObject.class));
+        objects.add(surprise);
+        level.setObjects(objects);
+
+        List<Surprise> result = level.getSurprises();
+
+        assertThat(result).containsExactly(surprise);
+    }
+
+    @Test
+    void testSetSurprises() {
+        Surprise newSurprise = mock(Surprise.class);
+        Surprise surprise = mock(Surprise.class);
+        Level level = new Level(100, 50);
+
+        List<GameObject> objects = new ArrayList<>();
+        objects.add(surprise);
+        objects.add(mock(GameObject.class));
+        level.setObjects(objects);
+
+        List<Surprise> newSurprises = List.of(newSurprise);
+        level.setSurprises(newSurprises);
+
+        List<GameObject> updatedObjects = level.getObjects();
+        assertThat(updatedObjects).contains(newSurprise).doesNotContain(surprise);
+    }
+
+    @Test
+    void testGetCoins() {
+        List<GameObject> objects = new ArrayList<>();
+        Level level = new Level(100, 50);
+        Coin coin = mock(Coin.class);
+        objects.add(mock(GameObject.class));
+        objects.add(coin);
+        level.setObjects(objects);
+
+        List<Coin> result = level.getCoins();
+
+        assertThat(result).containsExactly(coin);
+    }
+
+    @Test
+    void testGetFireBalls() {
+        List<GameObject> objects = new ArrayList<>();
+        Level level = new Level(100, 50);
+        FireBall fireBall = mock(FireBall.class);
+        objects.add(mock(GameObject.class));
+        objects.add(fireBall);
+        level.setObjects(objects);
+
+        List<FireBall> result = level.getFireBalls();
+
+        assertThat(result).containsExactly(fireBall);
+    }
+
+    @Test
+    void testSetFireBalls() {
+        FireBall newFireBall = mock(FireBall.class);
+        FireBall fireBall = mock(FireBall.class);
+        Level level = new Level(100, 50);
+
+        List<GameObject> objects = new ArrayList<>();
+        objects.add(fireBall);
+        objects.add(mock(GameObject.class));
+        level.setObjects(objects);
+
+        List<FireBall> newFireBalls = List.of(newFireBall);
+        level.setFireBalls(newFireBalls);
+
+        List<GameObject> updatedObjects = level.getObjects();
+        assertThat(updatedObjects).contains(newFireBall).doesNotContain(fireBall);
+    }
+
+    @Test
     void testAddAndRetrieveEnemies() {
         Level level = new Level(100, 50);
 
@@ -181,6 +319,24 @@ class LevelTest {
 
         // Verify that existing blocks were removed and new ones were added
         assertThat(level.getObjects()).containsExactlyInAnyOrder(newBlock1, newBlock2);
+    }
+
+    @Test
+    void testSetDestroyableBlocks() {
+        DestroyableBlock newBlock = mock(DestroyableBlock.class);
+        DestroyableBlock destroyableBlock = mock(DestroyableBlock.class);
+        Level level = new Level(100, 50);
+
+        List<GameObject> objects = new ArrayList<>();
+        objects.add(destroyableBlock);
+        objects.add(mock(GameObject.class));
+        level.setObjects(objects);
+
+        List<DestroyableBlock> newBlocks = List.of(newBlock);
+        level.setDestroyableBlocks(newBlocks);
+
+        List<GameObject> updatedObjects = level.getObjects();
+        assertThat(updatedObjects).contains(newBlock).doesNotContain(destroyableBlock);
     }
 
     @Test

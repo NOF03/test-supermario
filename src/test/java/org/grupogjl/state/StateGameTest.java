@@ -1,7 +1,5 @@
 package org.grupogjl.state;
 
-import mockit.Mock;
-import mockit.MockUp;
 import org.grupogjl.Game;
 import org.grupogjl.controller.ControllerGame;
 import org.grupogjl.gui.GeneralGui;
@@ -9,16 +7,14 @@ import org.grupogjl.gui.LanternaGui;
 import org.grupogjl.model.game.elements.Mario;
 import org.grupogjl.model.game.elements.level.Level;
 import org.grupogjl.viewer.Viewer;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static com.github.stefanbirkner.systemlambda.SystemLambda.catchSystemExit;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 class StateGameTest {
@@ -111,6 +107,7 @@ class StateGameTest {
         stateGame.resetLevel();
 
         assertThat(stateGame.getLevel()).isNotSameAs(initialLevel); // New level is created
+
         assertThat(mario.getX()).isEqualTo(0);
         assertThat(mario.getY()).isEqualTo(0);
     }
@@ -126,24 +123,4 @@ class StateGameTest {
         assertThat(mario.getX()).isEqualTo(0);
         assertThat(mario.getY()).isEqualTo(0);
     }
-
-//    @Test
-//    void testNextLevelExitsWhenMaxLevelReached() throws IOException {
-//        // Mock System.exit using JMockit
-//        new MockUp<System>() {
-//            @Mock
-//            public void exit(int status) {
-//                throw new RuntimeException(String.valueOf(status));
-//            }
-//        };
-//
-//        stateGame.nextLevel(); // Move to level 2
-//
-//        // Call nextLevel to trigger System.exit(0)
-//        RuntimeException exception = assertThrows(RuntimeException.class, stateGame::nextLevel);
-//
-//        // Assert that System.exit(0) was called
-//        assertEquals("0", exception.getMessage());
-//    }
-
 }

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -400,6 +399,84 @@ class PhysicalObjectTest {
         boolean result = physicalObject.collidesWith(mockObject);
 
         assertThat(result).isTrue();
+    }
+
+    @Test
+    void testCollidesWith_PhysicalObjectXOverlapTrueTrue() {
+        PhysicalObject mockObject = mock(PhysicalObject.class);
+        when(mockObject.getX()).thenReturn(5.0f);
+        when(mockObject.getY()).thenReturn(5.0f);
+        when(mockObject.getWidth()).thenReturn(10.0f);
+        when(mockObject.getHeight()).thenReturn(10.0f);
+
+        boolean result = physicalObject.collidesWithPhysical(mockObject, 2.0f, 2.0f);
+
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void testCollidesWith_PhysicalObjectXOverlapTrueFalse() {
+        PhysicalObject mockObject = mock(PhysicalObject.class);
+        when(mockObject.getX()).thenReturn(15.0f);
+        when(mockObject.getY()).thenReturn(5.0f);
+        when(mockObject.getWidth()).thenReturn(10.0f);
+        when(mockObject.getHeight()).thenReturn(10.0f);
+
+        boolean result = physicalObject.collidesWithPhysical(mockObject, 2.0f, 2.0f);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void testCollidesWith_PhysicalObjectXOverlapFalseTrue() {
+        PhysicalObject mockObject = mock(PhysicalObject.class);
+        when(mockObject.getX()).thenReturn(-15.0f);
+        when(mockObject.getY()).thenReturn(5.0f);
+        when(mockObject.getWidth()).thenReturn(10.0f);
+        when(mockObject.getHeight()).thenReturn(10.0f);
+
+        boolean result = physicalObject.collidesWithPhysical(mockObject, 2.0f, 2.0f);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void testCollidesWith_PhysicalObjectVerticalOverlapTrueFalse() {
+        PhysicalObject mockObject = mock(PhysicalObject.class);
+        when(mockObject.getX()).thenReturn(-15.0f);
+        when(mockObject.getY()).thenReturn(5.0f);
+        when(mockObject.getWidth()).thenReturn(10.0f);
+        when(mockObject.getHeight()).thenReturn(0.0f);
+
+        boolean result = physicalObject.collidesWithPhysical(mockObject, 2.0f, 2.0f);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void testCollidesWith_PhysicalObjectVerticalOverlapFalseTrue() {
+        PhysicalObject mockObject = mock(PhysicalObject.class);
+        when(mockObject.getX()).thenReturn(-15.0f);
+        when(mockObject.getY()).thenReturn(-15.0f);
+        when(mockObject.getWidth()).thenReturn(10.0f);
+        when(mockObject.getHeight()).thenReturn(-20.0f);
+
+        boolean result = physicalObject.collidesWithPhysical(mockObject, 2.0f, 2.0f);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void testCollidesWith_PhysicalObjectTrueFalse() {
+        PhysicalObject mockObject = mock(PhysicalObject.class);
+        when(mockObject.getX()).thenReturn(5.0f);
+        when(mockObject.getY()).thenReturn(-15.0f);
+        when(mockObject.getWidth()).thenReturn(10.0f);
+        when(mockObject.getHeight()).thenReturn(-20.0f);
+
+        boolean result = physicalObject.collidesWithPhysical(mockObject, 2.0f, 2.0f);
+
+        assertThat(result).isFalse();
     }
 
     @Test

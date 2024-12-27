@@ -1,8 +1,5 @@
 package org.grupogjl.model.game.elements.menu;
 
-import org.grupogjl.commands.ExitGameCommand;
-import org.grupogjl.commands.InstructionsCommand;
-import org.grupogjl.commands.StartGameCommand;
 import org.grupogjl.model.game.elements.buttons.Button;
 import org.junit.jupiter.api.Test;
 

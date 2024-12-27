@@ -5,8 +5,6 @@ import org.grupogjl.controller.ControllerPause;
 import org.grupogjl.gui.GeneralGui;
 import org.grupogjl.gui.LanternaGui;
 import org.grupogjl.model.game.elements.pause.PauseModel;
-import org.grupogjl.state.StateGame;
-import org.grupogjl.state.StatePause;
 import org.grupogjl.viewer.ViewerPause;
 import org.junit.jupiter.api.Test;
 

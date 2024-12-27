@@ -1,14 +1,12 @@
 package org.grupogjl;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class MainTest {
 
@@ -18,7 +16,7 @@ public class MainTest {
         Game mockGame = mock(Game.class);
 
         // Mock Game.getInstance() to return the mocked instance
-        try (var mockedGameClass = Mockito.mockStatic(Game.class)) {
+        try (var mockedGameClass = mockStatic(Game.class)) {
             mockedGameClass.when(Game::getInstance).thenReturn(mockGame);
 
             // Call the main method

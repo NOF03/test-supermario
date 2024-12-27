@@ -5,10 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.URL;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 
 class SpriteBuilderTest {
 
@@ -46,17 +45,11 @@ class SpriteBuilderTest {
 
     @Test
     void testLoadImageWhenNotInCache() throws IOException {
-        SpriteBuilder spriteBuilder = spy(new SpriteBuilder());
-        BufferedImage mockImage = mock(BufferedImage.class);
+        spriteBuilder = new SpriteBuilder();
 
-        // Mock ImageIO.read to return a valid BufferedImage
-        doReturn(mockImage).when(spriteBuilder).loadImage(anyString());
+        spriteBuilder.loadImage("pipe2.png");
 
-        BufferedImage result = spriteBuilder.loadImage("coin.png");
-
-        // Assert the image is loaded and cached
-        assertThat(result).isSameAs(mockImage);
-        assertThat(spriteBuilder.isInCache("coin.png")).isFalse();
+        assertThat(spriteBuilder.isInCache("pipe2.png")).isTrue();
     }
 
 

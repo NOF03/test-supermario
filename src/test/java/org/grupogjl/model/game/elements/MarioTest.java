@@ -1,6 +1,8 @@
 package org.grupogjl.model.game.elements;
 
-import org.grupogjl.model.game.elements.blocks.*;
+import org.grupogjl.model.game.elements.blocks.GoalBlock;
+import org.grupogjl.model.game.elements.blocks.InteractableBlock;
+import org.grupogjl.model.game.elements.blocks.Pipe;
 import org.grupogjl.model.game.elements.camera.Camera;
 import org.grupogjl.model.game.elements.enemies.Enemy;
 import org.grupogjl.model.game.elements.surprises.Surprise;
@@ -95,12 +97,51 @@ class MarioTest {
     }
 
     @Test
-    void testJump() {
+    void testJumpAllTrue() {
         Mario mario = new Mario(10, 20, 1, 1);
-
+        mario.setJumping(true);
+        mario.setFalling(true);
         // Jump
         mario.jump();
         assertThat(mario.isJumping()).isTrue();
+        assertThat(mario.isFalling()).isTrue();
+        assertThat(mario.getVy()).isEqualTo(0.0f);
+    }
+
+    @Test
+    void testJumpFirstTrueSecondFalse() {
+        Mario mario = new Mario(10, 20, 1, 1);
+        mario.setJumping(true);
+        mario.setFalling(false);
+        // Jump
+        mario.jump();
+        assertThat(mario.isJumping()).isTrue();
+        assertThat(mario.isFalling()).isFalse();
+        assertThat(mario.getVy()).isEqualTo(0.0f);
+    }
+
+    @Test
+    void testJumpFirstFalseSecondTrue() {
+        Mario mario = new Mario(10, 20, 1, 1);
+        mario.setJumping(false);
+        mario.setFalling(true);
+
+        // Jump
+        mario.jump();
+        assertThat(mario.isJumping()).isFalse();
+        assertThat(mario.isFalling()).isTrue();
+        assertThat(mario.getVy()).isEqualTo(0.0f);
+    }
+
+    @Test
+    void testJumpAllFalse() {
+        Mario mario = new Mario(10, 20, 1, 1);
+        mario.setJumping(false);
+        mario.setFalling(false);
+        // Jump
+        mario.jump();
+        assertThat(mario.isJumping()).isTrue();
+        assertThat(mario.isFalling()).isFalse();
         assertThat(mario.getVy()).isEqualTo(1.3f);
     }
 
