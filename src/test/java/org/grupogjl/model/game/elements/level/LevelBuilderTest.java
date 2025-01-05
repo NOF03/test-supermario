@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 class LevelBuilderTest {
 
     @Test
-    void testCreateLevel() {
+    public void testCreateLevel() {
         LevelBuilder builder = new TestLevelBuilder();
 
         // Create level

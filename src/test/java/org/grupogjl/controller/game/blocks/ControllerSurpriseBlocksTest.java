@@ -34,13 +34,12 @@ class ControllerSurpriseBlocksTest {
     @InjectMocks
     private ControllerSurpriseBlocks controllerSurpriseBlocks;
 
-    private List<SurpriseBlock> surpriseBlocks;
     private List<GameObject> objects;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         // Initialize non-mock collections
-        surpriseBlocks = spy(new ArrayList<>());
+        List<SurpriseBlock> surpriseBlocks = spy(new ArrayList<>());
         objects = spy(new ArrayList<>());
 
         // Add mockSurpriseBlock to surpriseBlocks
@@ -55,7 +54,7 @@ class ControllerSurpriseBlocksTest {
     }
 
     @Test
-    void shouldAddSurpriseToObjectsWhenConditionsAreMet() {
+    public void shouldAddSurpriseToObjectsWhenConditionsAreMet() {
         // Given
         when(mockSurpriseBlock.isUsed()).thenReturn(true);
         when(mockSurprise.isActivated()).thenReturn(true);
@@ -69,7 +68,7 @@ class ControllerSurpriseBlocksTest {
     }
 
     @Test
-    void shouldNotAddSurpriseToObjectsWhenItIsNotUsed() {
+    public void shouldNotAddSurpriseToObjectsWhenItIsNotUsed() {
         // Given
         when(mockSurpriseBlock.isUsed()).thenReturn(false);
 
@@ -82,7 +81,7 @@ class ControllerSurpriseBlocksTest {
     }
 
     @Test
-    void shouldNotAddSurpriseToObjectsWhenSurpriseIsNotActivated() {
+    public void shouldNotAddSurpriseToObjectsWhenSurpriseIsNotActivated() {
         // Given
         when(mockSurpriseBlock.isUsed()).thenReturn(true);
         when(mockSurprise.isActivated()).thenReturn(false);
@@ -96,7 +95,7 @@ class ControllerSurpriseBlocksTest {
     }
 
     @Test
-    void shouldNotAddSurpriseToObjectsWhenItIsAlreadyInObjects() {
+    public void shouldNotAddSurpriseToObjectsWhenItIsAlreadyInObjects() {
         // Given
         objects.add(mockSurprise);
         when(mockSurpriseBlock.isUsed()).thenReturn(true);

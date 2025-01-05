@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 class FlowerTest {
 
     @Test
-    void testBorn() {
+    public void testBorn() {
         Flower flower = new Flower(10, 20);
         flower.born();
 
@@ -21,7 +21,7 @@ class FlowerTest {
     }
 
     @Test
-    void testActivate() {
+    public void testActivate() {
         Flower flower = new Flower(10, 20);
         Mario mario = mock(Mario.class);
 
@@ -33,7 +33,7 @@ class FlowerTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObject() {
+    public void testHandleCollisionWithStaticObject() {
         Flower flower = new Flower(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -46,7 +46,7 @@ class FlowerTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectUp() {
+    public void testHandleCollisionWithStaticObjectUp() {
         Flower flower = new Flower(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -58,7 +58,7 @@ class FlowerTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectDown() {
+    public void testHandleCollisionWithStaticObjectDown() {
         Flower flower = new Flower(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -73,7 +73,7 @@ class FlowerTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectLeft() {
+    public void testHandleCollisionWithStaticObjectLeft() {
         Flower flower = new Flower(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -86,7 +86,7 @@ class FlowerTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectRight() {
+    public void testHandleCollisionWithStaticObjectRight() {
         Flower flower = new Flower(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -99,7 +99,7 @@ class FlowerTest {
     }
 
     @Test
-    void testHandleCollisionWithNonStaticObject() {
+    public void testHandleCollisionWithNonStaticObject() {
         Flower flower = new Flower(10, 20);
         PhysicalObject mockPhysicalObject = mock(PhysicalObject.class);
         when(mockPhysicalObject.getY()).thenReturn(25f);
@@ -112,13 +112,13 @@ class FlowerTest {
     }
 
     @Test
-    void testGetImage() {
+    public void testGetImage() {
         Flower flower = new Flower(10, 20);
         assertThat(flower.getImage()).isEqualTo("flower.png");
     }
 
     @Test
-    void testGetVirtX() {
+    public void testGetVirtX() {
         Flower flower = new Flower(10, 20);
         Camera mockCamera = mock(Camera.class);
         when(mockCamera.getLeftCamLimit()).thenReturn(5f);
@@ -127,7 +127,7 @@ class FlowerTest {
     }
 
     @Test
-    void testGetVirtY() {
+    public void testGetVirtY() {
         Flower flower = new Flower(10, 20);
         assertThat(flower.getVirtY()).isEqualTo(20);
     }

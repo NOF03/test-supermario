@@ -11,7 +11,7 @@ class ControllerBlocksTest {
     private static final long MOCK_TIME = 123L;
 
     @Test
-    void shouldInvokeStepOnSurpriseAndDestroyableBlocksControllers() {
+    public void shouldInvokeStepOnSurpriseAndDestroyableBlocksControllers() {
         // Mock dependencies
         Level mockLevel = mock(Level.class);
 

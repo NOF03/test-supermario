@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -14,18 +13,18 @@ class SpriteBuilderTest {
     private SpriteBuilder spriteBuilder;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         spriteBuilder = new SpriteBuilder();
     }
 
     @Test
-    void testIsInCacheWhenNotPresent() {
+    public void testIsInCacheWhenNotPresent() {
         boolean result = spriteBuilder.isInCache("nonexistent.png");
         assertThat(result).isFalse();
     }
 
     @Test
-    void testSetToCache() {
+    public void testSetToCache() {
         BufferedImage mockImage = mock(BufferedImage.class);
         spriteBuilder.setToCache("test.png", mockImage);
 
@@ -34,7 +33,7 @@ class SpriteBuilderTest {
     }
 
     @Test
-    void testLoadImageWhenInCache() {
+    public void testLoadImageWhenInCache() {
         BufferedImage mockImage = mock(BufferedImage.class);
         spriteBuilder.setToCache("test.png", mockImage);
 
@@ -44,7 +43,7 @@ class SpriteBuilderTest {
     }
 
     @Test
-    void testLoadImageWhenNotInCache() throws IOException {
+    public void testLoadImageWhenNotInCache() {
         spriteBuilder = new SpriteBuilder();
 
         spriteBuilder.loadImage("pipe2.png");
@@ -54,14 +53,14 @@ class SpriteBuilderTest {
 
 
     @Test
-    void testLoadImageWhenResourceNotFound() {
+    public void testLoadImageWhenResourceNotFound() {
         BufferedImage result = spriteBuilder.loadImage("nonexistent.png");
 
         assertThat(result).isNull();
     }
 
     @Test
-    void testLoadImageLogsErrorOnException() {
+    public void testLoadImageLogsErrorOnException() {
         SpriteBuilder spriteBuilder = new SpriteBuilder();
 
         // Attempt to load an invalid resource

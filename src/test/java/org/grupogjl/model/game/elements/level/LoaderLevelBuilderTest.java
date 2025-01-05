@@ -21,7 +21,7 @@ import static org.mockito.Mockito.mock;
 class LoaderLevelBuilderTest {
 
     @Test
-    void testReadLines() throws IOException {
+    public void testReadLines() throws IOException {
         BufferedReader br = new BufferedReader(new StringReader("line1\nline2\nline3"));
         LoaderLevelBuilder builder = mock(LoaderLevelBuilder.class, CALLS_REAL_METHODS);
 
@@ -31,10 +31,10 @@ class LoaderLevelBuilderTest {
     }
 
     @Test
-    void testGetWidth() throws IOException {
+    public void testGetWidth() throws IOException {
         LoaderLevelBuilder builder = new LoaderLevelBuilder(1) {
             @Override
-            public List<String> readLines(BufferedReader br) throws IOException {
+            public List<String> readLines(BufferedReader br) {
                 return List.of("short", "longer line");
             }
         };
@@ -44,10 +44,10 @@ class LoaderLevelBuilderTest {
     }
 
     @Test
-    void testGetHeight() throws IOException {
+    public void testGetHeight() throws IOException {
         LoaderLevelBuilder builder = new LoaderLevelBuilder(1) {
             @Override
-            public List<String> readLines(BufferedReader br) throws IOException {
+            public List<String> readLines(BufferedReader br) {
                 return List.of("line1", "line2");
             }
         };
@@ -57,10 +57,10 @@ class LoaderLevelBuilderTest {
     }
 
     @Test
-    void testCreateGameObjects() throws IOException {
+    public void testCreateGameObjects() throws IOException {
         LoaderLevelBuilder builder = new LoaderLevelBuilder(1) {
             @Override
-            public List<String> readLines(BufferedReader br) throws IOException {
+            public List<String> readLines(BufferedReader br) {
                 return List.of("#$+?", "uvwxyz", "pg", "a");
             }
         };
@@ -77,12 +77,12 @@ class LoaderLevelBuilderTest {
     }
 
     @Test
-    void testCreateGameObjectsHitsAllRandomCases() throws IOException {
+    public void testCreateGameObjectsHitsAllRandomCases() throws IOException {
         // Mock the BufferedReader to simulate a single SurpriseBlock line
         BufferedReader mockReader = new BufferedReader(new StringReader("?"));
         LoaderLevelBuilder builder = new LoaderLevelBuilder(1) {
             @Override
-            public List<String> readLines(BufferedReader br) throws IOException {
+            public List<String> readLines(BufferedReader br) {
                 return List.of("?"); // Simulate a single line with a "?"
             }
         };
@@ -124,10 +124,10 @@ class LoaderLevelBuilderTest {
     }
 
     @Test
-    void testCreateGameObjectsWithSurpriseBlock() throws IOException {
+    public void testCreateGameObjectsWithSurpriseBlock() throws IOException {
         LoaderLevelBuilder builder = new LoaderLevelBuilder(1) {
             @Override
-            public List<String> readLines(BufferedReader br) throws IOException {
+            public List<String> readLines(BufferedReader br) {
                 return List.of("?");
             }
         };
@@ -140,7 +140,7 @@ class LoaderLevelBuilderTest {
     }
 
     @Test
-    void testConnectPipes() throws IOException {
+    public void testConnectPipes() throws IOException {
         LoaderLevelBuilder builder = new LoaderLevelBuilder(1);
         Pipe pipe1 = new Pipe(0, 0, 2, 2);
         Pipe pipe2 = new Pipe(0, 0, 2, 2);

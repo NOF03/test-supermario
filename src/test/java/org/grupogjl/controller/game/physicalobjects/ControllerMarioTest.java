@@ -38,7 +38,7 @@ class ControllerMarioTest {
     private Camera camera;
 
     @Test
-    void testStep() {
+    public void testStep() {
         when(level.getMario()).thenReturn(mario);
         when(level.getCamera()).thenReturn(camera);
 
@@ -50,7 +50,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testUpdateMarioStatus_withCoinsForLife() {
+    public void testUpdateMarioStatus_withCoinsForLife() {
         when(level.getMario()).thenReturn(mario);
         when(mario.getCoins()).thenReturn(10);
         when(mario.getY()).thenReturn(0f);
@@ -62,7 +62,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testUpdateMarioStatus_marioFallsOffLevel() {
+    public void testUpdateMarioStatus_marioFallsOffLevel() {
         when(level.getMario()).thenReturn(mario);
         when(mario.getY()).thenReturn(20f); // Mario falls below the level height
         when(level.getHeight()).thenReturn(15);
@@ -73,7 +73,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testUpdateMarioStatus_noCoinsForLife() {
+    public void testUpdateMarioStatus_noCoinsForLife() {
         when(level.getMario()).thenReturn(mario);
         when(mario.getCoins()).thenReturn(5); // Less than 10 coins
         when(mario.getY()).thenReturn(0f);
@@ -85,7 +85,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testUpdateMarioStatus_invincibleTime() {
+    public void testUpdateMarioStatus_invincibleTime() {
         when(level.getMario()).thenReturn(mario);
         when(mario.getInvencibleTime()).thenReturn(5);
         when(mario.isStateInvencible()).thenReturn(true);
@@ -96,7 +96,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testUpdateMarioStatus_noInvincibleTime() {
+    public void testUpdateMarioStatus_noInvincibleTime() {
         when(level.getMario()).thenReturn(mario);
         when(mario.getInvencibleTime()).thenReturn(0);
         when(mario.isStateInvencible()).thenReturn(true);
@@ -107,25 +107,25 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_jumpAction() {
+    public void testMoveMario_jumpAction() {
         controllerMario.moveMario(GeneralGui.ACTION.UP, mario, new ArrayList<>());
         verify(mario).jump();
     }
 
     @Test
-    void testMoveMario_moveRightAction() {
+    public void testMoveMario_moveRightAction() {
         controllerMario.moveMario(GeneralGui.ACTION.RIGHT, mario, new ArrayList<>());
         verify(mario).moveRight();
     }
 
     @Test
-    void testMoveMario_moveLeftAction() {
+    public void testMoveMario_moveLeftAction() {
         controllerMario.moveMario(GeneralGui.ACTION.LEFT, mario, new ArrayList<>());
         verify(mario).moveLeft();
     }
 
     @Test
-    void testMoveMario_noneAction() {
+    public void testMoveMario_noneAction() {
         when(mario.isJumping()).thenReturn(false);
         when(mario.isFalling()).thenReturn(false);
 
@@ -135,7 +135,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_noneActionJumping() {
+    public void testMoveMario_noneActionJumping() {
         when(mario.isJumping()).thenReturn(true);
         lenient().when(mario.isFalling()).thenReturn(false);
 
@@ -145,7 +145,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_noneAction_marioFalling() {
+    public void testMoveMario_noneAction_marioFalling() {
         when(mario.isJumping()).thenReturn(false);
         when(mario.isFalling()).thenReturn(true);
 
@@ -155,7 +155,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_noneAction_marioFallingAndJumping() {
+    public void testMoveMario_noneAction_marioFallingAndJumping() {
         when(mario.isJumping()).thenReturn(true);
         lenient().when(mario.isFalling()).thenReturn(true);
 
@@ -165,7 +165,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_throwFireball() {
+    public void testMoveMario_throwFireball() {
         List<GameObject> objects = new ArrayList<>();
         when(mario.isStateFire()).thenReturn(true);
 
@@ -176,7 +176,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_throwFireballFalse() {
+    public void testMoveMario_throwFireballFalse() {
         List<GameObject> objects = new ArrayList<>();
         when(mario.isStateFire()).thenReturn(false);
 
@@ -186,7 +186,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_transportMario() {
+    public void testMoveMario_transportMario() {
         Pipe pipe = mock(Pipe.class);
         when(pipe.getConection()).thenReturn(pipe);
         when(pipe.getX()).thenReturn(1.0f);
@@ -206,7 +206,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_noTransportMario() {
+    public void testMoveMario_noTransportMario() {
         Pipe pipe = mock(Pipe.class);
         lenient().when(pipe.getConection()).thenReturn(pipe);
         when(pipe.getX()).thenReturn(10.0f);
@@ -226,7 +226,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testUpdateMarioStatus_noConditionsMet() {
+    public void testUpdateMarioStatus_noConditionsMet() {
         when(level.getMario()).thenReturn(mario);
         when(mario.getCoins()).thenReturn(5); // Less than 10 coins
         when(mario.getY()).thenReturn(5f); // Above level height
@@ -243,7 +243,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testMoveMario_defaultCase() {
+    public void testMoveMario_defaultCase() {
         controllerMario.moveMario(GeneralGui.ACTION.SELECT, mario, new ArrayList<>());
 
         // Verify no action is taken
@@ -254,7 +254,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testTransportMario_noActionWhenNotAbovePipe() {
+    public void testTransportMario_noActionWhenNotAbovePipe() {
         Pipe pipe = mock(Pipe.class);
         lenient().when(pipe.getConection()).thenReturn(pipe);
         when(pipe.getX()).thenReturn(10.0f);
@@ -274,7 +274,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testTransportMario_objectNotPipe() {
+    public void testTransportMario_objectNotPipe() {
         DestroyableBlock pipe = mock(DestroyableBlock.class);
         lenient().when(pipe.getX()).thenReturn(10.0f);
         lenient().when(pipe.getY()).thenReturn(20.0f);
@@ -293,7 +293,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testTransportMario_notAbovePipe() {
+    public void testTransportMario_notAbovePipe() {
         Pipe pipe = mock(Pipe.class);
         lenient().when(pipe.getConection()).thenReturn(pipe);
         lenient().when(pipe.getX()).thenReturn(1.5f);
@@ -313,7 +313,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testUpdateMarioStatus_hitCooldownTrue() {
+    public void testUpdateMarioStatus_hitCooldownTrue() {
         when(level.getMario()).thenReturn(mario);
         when(mario.getInvencibleTime()).thenReturn(0);
         when(mario.isStateInvencible()).thenReturn(true);
@@ -326,7 +326,7 @@ class ControllerMarioTest {
     }
 
     @Test
-    void testUpdateMarioStatus_hitCooldownFalse() {
+    public void testUpdateMarioStatus_hitCooldownFalse() {
         when(level.getMario()).thenReturn(mario);
         when(mario.getInvencibleTime()).thenReturn(0);
         when(mario.isStateInvencible()).thenReturn(true);

@@ -26,14 +26,14 @@ class ControllerFireBallTest {
     private Level level;
 
     @Test
-    void testStep() {
+    public void testStep() {
         controllerFireBall.step(level, GeneralGui.ACTION.THROWBALL, 1000L);
 
         verify(controllerFireBall, times(1)).updateStatus(level, 1000L);
     }
 
     @Test
-    void testUpdateStatus_removesInactiveFireBalls() {
+    public void testUpdateStatus_removesInactiveFireBalls() {
         FireBall activeFireBall = mock(FireBall.class);
         FireBall inactiveFireBall = mock(FireBall.class);
 

@@ -29,7 +29,7 @@ class ControllerEnemyTest {
     private Camera camera;
 
     @Test
-    void testStep() {
+    public void testStep() {
         List<Enemy> enemies = new ArrayList<>();
         when(level.getEnemies()).thenReturn(enemies);
         when(level.getCamera()).thenReturn(camera);
@@ -41,7 +41,7 @@ class ControllerEnemyTest {
     }
 
     @Test
-    void testUpdateStatus_removesDeadEnemies() {
+    public void testUpdateStatus_removesDeadEnemies() {
         Enemy aliveEnemy = mock(Enemy.class);
         Enemy deadEnemy = mock(Enemy.class);
 
@@ -63,7 +63,7 @@ class ControllerEnemyTest {
     }
 
     @Test
-    void testMoveEnemies() {
+    public void testMoveEnemies() {
         Enemy fallingEnemy = mock(Enemy.class);
         Enemy movingEnemy = mock(Enemy.class);
 
@@ -83,7 +83,7 @@ class ControllerEnemyTest {
     }
 
     @Test
-    void testMoveEnemies_notRevealed() {
+    public void testMoveEnemies_notRevealed() {
         Enemy hiddenEnemy = mock(Enemy.class);
 
         List<Enemy> enemies = List.of(hiddenEnemy);
@@ -98,7 +98,7 @@ class ControllerEnemyTest {
     }
 
     @Test
-    void testMoveEnemies_movingRight() {
+    public void testMoveEnemies_movingRight() {
         Enemy rightMovingEnemy = mock(Enemy.class);
 
         List<Enemy> enemies = List.of(rightMovingEnemy);
@@ -113,7 +113,7 @@ class ControllerEnemyTest {
     }
 
     @Test
-    void testMoveEnemies_noMovement() {
+    public void testMoveEnemies_noMovement() {
         Enemy stationaryEnemy = mock(Enemy.class);
 
         List<Enemy> enemies = List.of(stationaryEnemy);

@@ -26,7 +26,7 @@ class ControllerSurprisesTest {
     private Level level;
 
     @Test
-    void testStep() {
+    public void testStep() {
         GeneralGui.ACTION action = GeneralGui.ACTION.LEFT;
         long time = 1000L;
 
@@ -42,7 +42,7 @@ class ControllerSurprisesTest {
     }
 
     @Test
-    void testUpdateStatus_withActivatedSurprise() {
+    public void testUpdateStatus_withActivatedSurprise() {
         Surprise activatedSurprise = mock(Surprise.class);
         List<Surprise> surprises = new ArrayList<>();
         surprises.add(activatedSurprise);
@@ -57,7 +57,7 @@ class ControllerSurprisesTest {
     }
 
     @Test
-    void testUpdateStatus_withNonActivatedSurprise() {
+    public void testUpdateStatus_withNonActivatedSurprise() {
         Surprise nonActivatedSurprise = mock(Surprise.class);
         List<Surprise> surprises = new ArrayList<>();
         surprises.add(nonActivatedSurprise);

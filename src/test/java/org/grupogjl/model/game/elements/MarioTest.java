@@ -23,12 +23,12 @@ class MarioTest {
     private Mario mario;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         mario = new Mario(10, 20, 1, 2);
     }
 
     @Test
-    void testGetImageCoversAllScenarios() {
+    public void testGetImageCoversAllScenarios() {
         // Set to track all possible outcomes
         Set<String> observedImages = new HashSet<>();
 
@@ -66,7 +66,7 @@ class MarioTest {
     }
 
     @Test
-    void testGetImageReturnsNull() {
+    public void testGetImageReturnsNull() {
         // Set the state of Mario to ensure no condition is satisfied
         Mario spyMario = spy(mario);
         String result = "mario.png";
@@ -84,7 +84,7 @@ class MarioTest {
     }
 
     @Test
-    void testMarioInitialization() {
+    public void testMarioInitialization() {
         Mario mario = new Mario(10, 20, 1, 1);
 
         // Verify initial state
@@ -97,7 +97,7 @@ class MarioTest {
     }
 
     @Test
-    void testJumpAllTrue() {
+    public void testJumpAllTrue() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setJumping(true);
         mario.setFalling(true);
@@ -109,7 +109,7 @@ class MarioTest {
     }
 
     @Test
-    void testJumpFirstTrueSecondFalse() {
+    public void testJumpFirstTrueSecondFalse() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setJumping(true);
         mario.setFalling(false);
@@ -121,7 +121,7 @@ class MarioTest {
     }
 
     @Test
-    void testJumpFirstFalseSecondTrue() {
+    public void testJumpFirstFalseSecondTrue() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setJumping(false);
         mario.setFalling(true);
@@ -134,7 +134,7 @@ class MarioTest {
     }
 
     @Test
-    void testJumpAllFalse() {
+    public void testJumpAllFalse() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setJumping(false);
         mario.setFalling(false);
@@ -146,7 +146,7 @@ class MarioTest {
     }
 
     @Test
-    void testMoveLeft() {
+    public void testMoveLeft() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.moveLeft();
 
@@ -155,7 +155,7 @@ class MarioTest {
     }
 
     @Test
-    void testMoveRight() {
+    public void testMoveRight() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.moveRight();
 
@@ -164,7 +164,7 @@ class MarioTest {
     }
 
     @Test
-    void testNotifyStateLives() throws IOException {
+    public void testNotifyStateLives() throws IOException {
         Mario mario = new Mario(10, 20, 1, 1);
         StateGame mockObserver = mock(StateGame.class);
         mario.setObserver(mockObserver);
@@ -175,7 +175,7 @@ class MarioTest {
     }
 
     @Test
-    void testNotifyStateGoal() throws IOException {
+    public void testNotifyStateGoal() throws IOException {
         Mario mario = new Mario(10, 20, 1, 1);
         StateGame mockObserver = mock(StateGame.class);
         mario.setObserver(mockObserver);
@@ -186,7 +186,7 @@ class MarioTest {
     }
 
     @Test
-    void testNotifyStateIOException() throws IOException {
+    public void testNotifyStateIOException() throws IOException {
         Mario mario = new Mario(10, 20, 1, 1);
         StateGame mockObserver = mock(StateGame.class);
         mario.setObserver(mockObserver);
@@ -200,7 +200,7 @@ class MarioTest {
     }
 
     @Test
-    void testNotifyStateElse() throws IOException {
+    public void testNotifyStateElse() throws IOException {
         Mario mario = new Mario(10, 20, 1, 1);
         StateGame mockObserver = mock(StateGame.class);
         mario.setObserver(mockObserver);
@@ -211,7 +211,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleWallCollision() {
+    public void testHandleWallCollision() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setVx(1.0f);
 
@@ -224,7 +224,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithSurprise() {
+    public void testHandleCollisionWithSurprise() {
         Mario mario = new Mario(10, 20, 1, 1);
         Surprise mockSurprise = mock(Surprise.class);
 
@@ -235,7 +235,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemyAbove() {
+    public void testHandleCollisionWithEnemyAbove() {
         Mario mario = new Mario(10, 20, 1, 1);
         Enemy mockEnemy = mock(Enemy.class);
         when(mockEnemy.getLives()).thenReturn(1);
@@ -249,7 +249,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemyInvincible() {
+    public void testHandleCollisionWithEnemyInvincible() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setStateInvencible(true);
         mario.setHitCooldown(false);
@@ -265,7 +265,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemyInvincibleAndHitCooldown() {
+    public void testHandleCollisionWithEnemyInvincibleAndHitCooldown() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setStateInvencible(true);
         mario.setHitCooldown(true);
@@ -279,7 +279,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemySideWhenBigOrFire() {
+    public void testHandleCollisionWithEnemySideWhenBigOrFire() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setStateBig(true);
         mario.setStateFire(true);
@@ -300,7 +300,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemySideWhenNoBigOrFire() {
+    public void testHandleCollisionWithEnemySideWhenNoBigOrFire() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setStateBig(false);
         mario.setStateFire(true);
@@ -321,7 +321,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemySideWhenBigOrNoFire() {
+    public void testHandleCollisionWithEnemySideWhenBigOrNoFire() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setStateBig(true);
         mario.setStateFire(false);
@@ -342,7 +342,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemySideWhenNotBigOrFire() throws IOException {
+    public void testHandleCollisionWithEnemySideWhenNotBigOrFire() throws IOException {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setStateBig(false);
         mario.setStateFire(false);
@@ -362,10 +362,10 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemySide() throws IOException {
+    public void testHandleCollisionWithEnemySide() throws IOException {
         Mario mario = new Mario(10, 20, 1, 1);
         StateGame mockObserver = mock(StateGame.class);
-        mario.setObserver(mockObserver); // Set the observer to avoid NullPointerException
+        mario.setObserver(mockObserver); // Set the observer to apublic void NullPointerException
 
         Enemy mockEnemy = mock(Enemy.class);
 
@@ -379,7 +379,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithGoalBlock() throws IOException {
+    public void testHandleCollisionWithGoalBlock() throws IOException {
         Mario mario = new Mario(10, 20, 1, 1);
         GoalBlock mockGoalBlock = mock(GoalBlock.class);
         StateGame mockObserver = mock(StateGame.class);
@@ -391,7 +391,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithInteractableBlockUp() {
+    public void testHandleCollisionWithInteractableBlockUp() {
         Mario mario = new Mario(10, 20, 1, 1);
         InteractableBlock mockBlock = mock(InteractableBlock.class);
 
@@ -403,7 +403,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithInteractableBlockDown() {
+    public void testHandleCollisionWithInteractableBlockDown() {
         Mario mario = new Mario(10, 20, 1, 1);
         InteractableBlock mockBlock = mock(InteractableBlock.class);
 
@@ -414,7 +414,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithInteractableBlockRight() {
+    public void testHandleCollisionWithInteractableBlockRight() {
         Mario mario = new Mario(10, 20, 1, 1);
         InteractableBlock mockBlock = mock(InteractableBlock.class);
 
@@ -425,7 +425,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithInteractableBlockLeft() {
+    public void testHandleCollisionWithInteractableBlockLeft() {
         Mario mario = new Mario(10, 20, 1, 1);
         InteractableBlock mockBlock = mock(InteractableBlock.class);
 
@@ -436,7 +436,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithInteractableBlockNothing() {
+    public void testHandleCollisionWithInteractableBlockNothing() {
         Mario mario = new Mario(10, 20, 1, 1);
         InteractableBlock mockBlock = mock(InteractableBlock.class);
 
@@ -447,7 +447,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithPipe() {
+    public void testHandleCollisionWithPipe() {
         Mario mario = new Mario(10, 20, 1, 1);
         Pipe mockBlock = mock(Pipe.class);
 
@@ -458,7 +458,7 @@ class MarioTest {
     }
 
     @Test
-    void testHandleCollisionWithMario() {
+    public void testHandleCollisionWithMario() {
         Mario mario = new Mario(10, 20, 1, 1);
         Mario mockBlock = mock(Mario.class);
 
@@ -469,7 +469,7 @@ class MarioTest {
     }
 
     @Test
-    void testReset() throws IOException {
+    public void testReset() throws IOException {
         Mario mario = new Mario(10, 20, 1, 1);
         StateGame mockObserver = mock(StateGame.class);
         mario.setObserver(mockObserver);
@@ -482,7 +482,7 @@ class MarioTest {
     }
 
     @Test
-    void testResetWhenBig() throws IOException {
+    public void testResetWhenBig() throws IOException {
         Mario mario = new Mario(10, 20, 1, 2);
         StateGame mockObserver = mock(StateGame.class);
         mario.setObserver(mockObserver);
@@ -498,7 +498,7 @@ class MarioTest {
     }
 
     @Test
-    void testResetWhenFire() throws IOException {
+    public void testResetWhenFire() throws IOException {
         Mario mario = new Mario(10, 20, 1, 2);
         StateGame mockObserver = mock(StateGame.class);
         mario.setObserver(mockObserver);
@@ -514,7 +514,7 @@ class MarioTest {
     }
 
     @Test
-    void testResetWhenBigAndFire() throws IOException {
+    public void testResetWhenBigAndFire() throws IOException {
         Mario mario = new Mario(10, 20, 1, 2);
         StateGame mockObserver = mock(StateGame.class);
         mario.setObserver(mockObserver);
@@ -531,7 +531,7 @@ class MarioTest {
 
 
     @Test
-    void testGetVirtX() {
+    public void testGetVirtX() {
         Camera mockCamera = mock(Camera.class);
         when(mockCamera.getLeftCamLimit()).thenReturn(5.0f);
 
@@ -542,7 +542,7 @@ class MarioTest {
     }
 
     @Test
-    void testGetVirtY() {
+    public void testGetVirtY() {
         Mario mario = new Mario(10, 20, 1, 1);
 
         // Verify virtual Y
@@ -550,7 +550,7 @@ class MarioTest {
     }
 
     @Test
-    void testGetInvencibleTime() {
+    public void testGetInvencibleTime() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setInvencibleTime(600);
 
@@ -558,7 +558,7 @@ class MarioTest {
     }
 
     @Test
-    void testSetCoins() {
+    public void testSetCoins() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setCoins(100);
 
@@ -566,7 +566,7 @@ class MarioTest {
     }
 
     @Test
-    void testIsHitCooldown() {
+    public void testIsHitCooldown() {
         Mario mario = new Mario(10, 20, 1, 1);
         mario.setHitCooldown(true);
 

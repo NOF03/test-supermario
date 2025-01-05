@@ -18,7 +18,7 @@ class MenuPauseModelTest {
     private Game mockGame;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         mockGame = mock(Game.class);
 
         menuPauseModel = new MenuPauseModel() {
@@ -33,29 +33,29 @@ class MenuPauseModelTest {
     }
 
     @Test
-    void testSetAndGetSelectedOption() {
+    public void testSetAndGetSelectedOption() {
         menuPauseModel.setSelectedOption(true);
         assertThat(menuPauseModel.isSelectedOption()).isTrue();
     }
 
     @Test
-    void testSetAndGetTextOption() {
+    public void testSetAndGetTextOption() {
         menuPauseModel.setTextOption("New Option");
         assertThat(menuPauseModel.getTextOption()).isEqualTo("New Option");
     }
 
     @Test
-    void testGetButtons() {
+    public void testGetButtons() {
         assertThat(menuPauseModel.getButtons()).hasSize(2);
     }
 
     @Test
-    void testGetSelectedButton() {
+    public void testGetSelectedButton() {
         assertThat(menuPauseModel.getSelectedButton()).isEqualTo((byte) 0);
     }
 
     @Test
-    void testNextPosition() {
+    public void testNextPosition() {
         menuPauseModel.nextPosition();
         assertThat(menuPauseModel.getSelectedButton()).isEqualTo((byte) 1);
 
@@ -64,7 +64,7 @@ class MenuPauseModelTest {
     }
 
     @Test
-    void testLastPosition() {
+    public void testLastPosition() {
         menuPauseModel.nextPosition(); // Move to position 1
         menuPauseModel.lastPosition();
         assertThat(menuPauseModel.getSelectedButton()).isEqualTo((byte) 0);
@@ -74,7 +74,7 @@ class MenuPauseModelTest {
     }
 
     @Test
-    void testExecute() {
+    public void testExecute() {
         Button mockButton = mock(Button.class);
         menuPauseModel.getButtons().set(0, mockButton);
 

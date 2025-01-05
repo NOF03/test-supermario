@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 class StarTest {
 
     @Test
-    void testBorn() {
+    public void testBorn() {
         Star star = new Star(10, 20);
         star.born();
 
@@ -21,7 +21,7 @@ class StarTest {
     }
 
     @Test
-    void testActivate() {
+    public void testActivate() {
         Star star = new Star(10, 20);
         Mario mario = mock(Mario.class);
 
@@ -32,7 +32,7 @@ class StarTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObject() {
+    public void testHandleCollisionWithStaticObject() {
         Star star = new Star(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -45,7 +45,7 @@ class StarTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectUp() {
+    public void testHandleCollisionWithStaticObjectUp() {
         Star star = new Star(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -57,7 +57,7 @@ class StarTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectDown() {
+    public void testHandleCollisionWithStaticObjectDown() {
         Star star = new Star(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -72,7 +72,7 @@ class StarTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectLeft() {
+    public void testHandleCollisionWithStaticObjectLeft() {
         Star star = new Star(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -85,7 +85,7 @@ class StarTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectRight() {
+    public void testHandleCollisionWithStaticObjectRight() {
         Star star = new Star(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -98,7 +98,7 @@ class StarTest {
     }
 
     @Test
-    void testHandleCollisionWithNonStaticObject() {
+    public void testHandleCollisionWithNonStaticObject() {
         Star star = new Star(10, 20);
         PhysicalObject mockPhysicalObject = mock(PhysicalObject.class);
         when(mockPhysicalObject.getY()).thenReturn(25f);
@@ -111,13 +111,13 @@ class StarTest {
     }
 
     @Test
-    void testGetImage() {
+    public void testGetImage() {
         Star star = new Star(10, 20);
         assertThat(star.getImage()).isEqualTo("star.png");
     }
 
     @Test
-    void testGetVirtX() {
+    public void testGetVirtX() {
         Star star = new Star(10, 20);
         Camera mockCamera = mock(Camera.class);
         when(mockCamera.getLeftCamLimit()).thenReturn(5f);
@@ -126,7 +126,7 @@ class StarTest {
     }
 
     @Test
-    void testGetVirtY() {
+    public void testGetVirtY() {
         Star star = new Star(10, 20);
         assertThat(star.getVirtY()).isEqualTo(20);
     }

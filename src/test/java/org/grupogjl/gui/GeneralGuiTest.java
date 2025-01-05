@@ -14,13 +14,13 @@ class GeneralGuiTest {
     private GeneralGui gui;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         // Mock GeneralGui interface
         gui = mock(GeneralGui.class);
     }
 
     @Test
-    void testDrawMenuTextWithoutColor() {
+    public void testDrawMenuTextWithoutColor() {
         gui.drawMenuText(10, 20, "Hello");
 
         // Verify that drawMenuText was called with the correct parameters
@@ -28,7 +28,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testDrawMenuTextWithColor() {
+    public void testDrawMenuTextWithColor() {
         gui.drawMenuText(10, 20, "Hello", "red");
 
         // Verify that drawMenuText was called with the correct parameters
@@ -36,7 +36,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testClear() {
+    public void testClear() {
         gui.clear();
 
         // Verify that clear was called
@@ -44,7 +44,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testRefresh() throws IOException {
+    public void testRefresh() throws IOException {
         gui.refresh();
 
         // Verify that refresh was called
@@ -52,7 +52,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testDrawImage() {
+    public void testDrawImage() {
         gui.drawImage(10.5f, 20.5f, "image.png");
 
         // Verify that drawImage was called with the correct parameters
@@ -60,7 +60,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testIsTransparent() {
+    public void testIsTransparent() {
         BufferedImage mockImage = mock(BufferedImage.class);
         when(gui.isTransparent(mockImage, 5, 10)).thenReturn(true);
 
@@ -72,7 +72,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testDrawPixel() {
+    public void testDrawPixel() {
         gui.drawPixel(10, 20, "blue");
 
         // Verify that drawPixel was called with the correct parameters
@@ -80,7 +80,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testDrawMenuImageWithoutColor() {
+    public void testDrawMenuImageWithoutColor() {
         gui.drawMenuImage(10, 20, "menuImage.png");
 
         // Verify that drawMenuImage was called with the correct parameters
@@ -88,7 +88,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testDrawMenuImageWithColor() {
+    public void testDrawMenuImageWithColor() {
         gui.drawMenuImage(10, 20, "menuImage.png", "yellow");
 
         // Verify that drawMenuImage was called with the correct parameters
@@ -96,7 +96,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testDrawGameOver() throws IOException {
+    public void testDrawGameOver() throws IOException {
         gui.drawGameOver();
 
         // Verify that drawGameOver was called
@@ -104,7 +104,7 @@ class GeneralGuiTest {
     }
 
     @Test
-    void testActionEnumValues() {
+    public void testActionEnumValues() {
         GeneralGui.ACTION[] actions = GeneralGui.ACTION.values();
 
         // Verify all enum values

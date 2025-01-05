@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 public class MainTest {
 
     @Test
-    void testMain() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
+    public void testMain() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         // Mock the Game class
         Game mockGame = mock(Game.class);
 

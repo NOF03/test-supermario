@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 class CoinTest {
 
     @Test
-    void testInitialization() {
+    public void testInitialization() {
         Coin coin = new Coin(10, 20);
 
         assertThat(coin.getX()).isEqualTo(10);
@@ -19,14 +19,14 @@ class CoinTest {
     }
 
     @Test
-    void testSetAndGetActivationTimer() {
+    public void testSetAndGetActivationTimer() {
         Coin coin = new Coin(10, 20);
         coin.setActivationTimer(5);
         assertThat(coin.getActivationTimer()).isEqualTo(5);
     }
 
     @Test
-    void testBorn() {
+    public void testBorn() {
         Coin coin = new Coin(10, 20);
         coin.born();
         assertThat(coin.getVy()).isEqualTo(0.7f);
@@ -34,7 +34,7 @@ class CoinTest {
     }
 
     @Test
-    void testActivate() {
+    public void testActivate() {
         Coin coin = new Coin(10, 20);
         Mario mario = mock(Mario.class);
         when(mario.getCoins()).thenReturn(5);
@@ -45,7 +45,7 @@ class CoinTest {
     }
 
     @Test
-    void testHandleCollision() {
+    public void testHandleCollision() {
         Coin coin = new Coin(10, 20);
         coin.handleCollision(null, 'U');
 
@@ -56,13 +56,13 @@ class CoinTest {
     }
 
     @Test
-    void testGetImage() {
+    public void testGetImage() {
         Coin coin = new Coin(10, 20);
         assertThat(coin.getImage()).isEqualTo("coin.png");
     }
 
     @Test
-    void testGetVirtX() {
+    public void testGetVirtX() {
         Coin coin = new Coin(10, 20);
         Camera mockCamera = mock(Camera.class);
         when(mockCamera.getLeftCamLimit()).thenReturn(5f);
@@ -71,7 +71,7 @@ class CoinTest {
     }
 
     @Test
-    void testGetVirtY() {
+    public void testGetVirtY() {
         Coin coin = new Coin(10, 20);
         assertThat(coin.getVirtY()).isEqualTo(20);
     }

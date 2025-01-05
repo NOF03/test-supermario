@@ -21,7 +21,7 @@ import static org.mockito.Mockito.mock;
 class LevelTest {
 
     @Test
-    void testInitialization() {
+    public void testInitialization() {
         Level level = new Level(100, 50);
 
         // Verify initial properties
@@ -31,7 +31,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetAndGetGoalBlock() {
+    public void testSetAndGetGoalBlock() {
         Level level = new Level(100, 50);
         GoalBlock goalBlock = mock(GoalBlock.class);
 
@@ -40,7 +40,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetAndGetCamera() {
+    public void testSetAndGetCamera() {
         Level level = new Level(100, 50);
         Camera camera = mock(Camera.class);
 
@@ -49,7 +49,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetAndGetMario() {
+    public void testSetAndGetMario() {
         Level level = new Level(100, 50);
         Mario mario = mock(Mario.class);
 
@@ -58,7 +58,7 @@ class LevelTest {
     }
 
     @Test
-    void testAddAndRetrieveDestroyableBlocks() {
+    public void testAddAndRetrieveDestroyableBlocks() {
         Level level = new Level(100, 50);
 
         DestroyableBlock block1 = mock(DestroyableBlock.class);
@@ -70,7 +70,7 @@ class LevelTest {
     }
 
     @Test
-    void testAddAndRetrieveSurpriseBlocks() {
+    public void testAddAndRetrieveSurpriseBlocks() {
         Level level = new Level(100, 50);
 
         SurpriseBlock block1 = mock(SurpriseBlock.class);
@@ -83,7 +83,7 @@ class LevelTest {
     }
 
     @Test
-    void testGetDestroyableBlocks() {
+    public void testGetDestroyableBlocks() {
         Level level = new Level(100, 50);
         List<GameObject> objects = new ArrayList<>();
         DestroyableBlock destroyableBlock = mock(DestroyableBlock.class);
@@ -97,7 +97,7 @@ class LevelTest {
     }
 
     @Test
-    void testGetSurpriseBlocks() {
+    public void testGetSurpriseBlocks() {
         Level level = new Level(100, 50);
         List<GameObject> objects = new ArrayList<>();
         SurpriseBlock surpriseBlock = mock(SurpriseBlock.class);
@@ -111,7 +111,7 @@ class LevelTest {
     }
 
     @Test
-    void testGetEnemies() {
+    public void testGetEnemies() {
         Level level = new Level(100, 50);
         List<GameObject> objects = new ArrayList<>();
         Enemy enemy = mock(Enemy.class);
@@ -125,7 +125,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetEnemies() {
+    public void testSetEnemies() {
         Enemy newEnemy = mock(Enemy.class);
         Enemy enemy = mock(Enemy.class);
         Level level = new Level(100, 50);
@@ -143,7 +143,7 @@ class LevelTest {
     }
 
     @Test
-    void testGetSurprises() {
+    public void testGetSurprises() {
         List<GameObject> objects = new ArrayList<>();
         Level level = new Level(100, 50);
         Surprise surprise = mock(Surprise.class);
@@ -157,7 +157,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetSurprises() {
+    public void testSetSurprises() {
         Surprise newSurprise = mock(Surprise.class);
         Surprise surprise = mock(Surprise.class);
         Level level = new Level(100, 50);
@@ -175,7 +175,7 @@ class LevelTest {
     }
 
     @Test
-    void testGetCoins() {
+    public void testGetCoins() {
         List<GameObject> objects = new ArrayList<>();
         Level level = new Level(100, 50);
         Coin coin = mock(Coin.class);
@@ -189,7 +189,7 @@ class LevelTest {
     }
 
     @Test
-    void testGetFireBalls() {
+    public void testGetFireBalls() {
         List<GameObject> objects = new ArrayList<>();
         Level level = new Level(100, 50);
         FireBall fireBall = mock(FireBall.class);
@@ -203,7 +203,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetFireBalls() {
+    public void testSetFireBalls() {
         FireBall newFireBall = mock(FireBall.class);
         FireBall fireBall = mock(FireBall.class);
         Level level = new Level(100, 50);
@@ -221,7 +221,7 @@ class LevelTest {
     }
 
     @Test
-    void testAddAndRetrieveEnemies() {
+    public void testAddAndRetrieveEnemies() {
         Level level = new Level(100, 50);
 
         Enemy enemy1 = mock(Enemy.class);
@@ -233,7 +233,7 @@ class LevelTest {
     }
 
     @Test
-    void testAddAndRetrieveSurprises() {
+    public void testAddAndRetrieveSurprises() {
         Level level = new Level(100, 50);
 
         Surprise surprise1 = mock(Surprise.class);
@@ -245,7 +245,7 @@ class LevelTest {
     }
 
     @Test
-    void testAddAndRetrieveCoins() {
+    public void testAddAndRetrieveCoins() {
         Level level = new Level(100, 50);
 
         Coin coin1 = mock(Coin.class);
@@ -258,7 +258,7 @@ class LevelTest {
     }
 
     @Test
-    void testAddAndRetrieveFireBalls() {
+    public void testAddAndRetrieveFireBalls() {
         Level level = new Level(100, 50);
 
         FireBall fireBall1 = mock(FireBall.class);
@@ -270,7 +270,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetObjects() {
+    public void testSetObjects() {
         Level level = new Level(100, 50);
 
         GameObject object1 = mock(GameObject.class);
@@ -282,7 +282,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetSurprisesRemovesExistingSurprises() {
+    public void testSetSurprisesRemovesExistingSurprises() {
         Level level = new Level(100, 50);
 
         // Mock existing Surprise in objects
@@ -302,7 +302,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetDestroyableBlocksRemovesExistingBlocks() {
+    public void testSetDestroyableBlocksRemovesExistingBlocks() {
         Level level = new Level(100, 50);
 
         // Mock existing DestroyableBlock in objects
@@ -322,7 +322,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetDestroyableBlocks() {
+    public void testSetDestroyableBlocks() {
         DestroyableBlock newBlock = mock(DestroyableBlock.class);
         DestroyableBlock destroyableBlock = mock(DestroyableBlock.class);
         Level level = new Level(100, 50);
@@ -340,7 +340,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetWidthAndHeight() {
+    public void testSetWidthAndHeight() {
         Level level = new Level(100, 50);
 
         // Update width and height
@@ -353,7 +353,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetEnemiesRemovesExistingEnemies() {
+    public void testSetEnemiesRemovesExistingEnemies() {
         Level level = new Level(100, 50);
 
         // Mock existing Enemy in objects
@@ -373,7 +373,7 @@ class LevelTest {
     }
 
     @Test
-    void testSetFireBallsRemovesExistingFireBalls() {
+    public void testSetFireBallsRemovesExistingFireBalls() {
         Level level = new Level(100, 50);
 
         // Mock existing FireBall in objects

@@ -44,7 +44,7 @@ class ControllerLevelTest {
     private ControllerFireBall controllerFireBall;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         controllerMario = mock(ControllerMario.class);
         controllerEnemy = mock(ControllerEnemy.class);
         controllerBlocks = mock(ControllerBlocks.class);
@@ -63,7 +63,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testGetControllerMario() {
+    public void testGetControllerMario() {
         // Arrange
         ControllerLevel controllerLevel = spy(ControllerLevel.class);
 
@@ -75,7 +75,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testGetControllerEnemy() {
+    public void testGetControllerEnemy() {
         // Arrange
         ControllerLevel controllerLevel = spy(ControllerLevel.class);
 
@@ -87,7 +87,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testGetControllerBlocks() {
+    public void testGetControllerBlocks() {
         // Arrange
         ControllerLevel controllerLevel = spy(ControllerLevel.class);
 
@@ -99,7 +99,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testGetControllerSurprises() {
+    public void testGetControllerSurprises() {
         // Arrange
         ControllerLevel controllerLevel = spy(ControllerLevel.class);
 
@@ -111,7 +111,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testGetControllerFireBall() {
+    public void testGetControllerFireBall() {
         // Arrange
         ControllerLevel controllerLevel = spy(ControllerLevel.class);
 
@@ -123,7 +123,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testStep() {
+    public void testStep() {
         // Mock dependencies
         Level level = mock(Level.class);
         Mario mario = mock(Mario.class); // Mario is also a GameObject
@@ -165,7 +165,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX() {
+    public void testCheckPhysicalCollisionsX() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
         BuildingBlock block = mock(BuildingBlock.class);
@@ -180,7 +180,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_WallCollision() {
+    public void testCheckPhysicalCollisionsX_WallCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject mainObject = mock(PhysicalObject.class);
@@ -197,7 +197,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_NoVelocityCollision() {
+    public void testCheckPhysicalCollisionsX_NoVelocityCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject mainObject = mock(PhysicalObject.class);
@@ -217,7 +217,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_RightwardCollision() {
+    public void testCheckPhysicalCollisionsX_RightwardCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject mainObject = mock(PhysicalObject.class);
@@ -236,7 +236,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_LeftwardCollision() {
+    public void testCheckPhysicalCollisionsX_LeftwardCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject mainObject = mock(PhysicalObject.class);
@@ -255,7 +255,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_UpwardCollision() {
+    public void testCheckPhysicalCollisionsX_UpwardCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject mainObject = mock(PhysicalObject.class);
@@ -273,7 +273,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_NoCollision() {
+    public void testCheckPhysicalCollisionsX_NoCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject mainObject = mock(PhysicalObject.class);
@@ -291,7 +291,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ZeroVelocityLeftCollision() {
+    public void testCheckPhysicalCollisionsX_ZeroVelocityLeftCollision() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         PhysicalObject enemy = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
@@ -310,7 +310,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ZeroVelocityRightCollision() {
+    public void testCheckPhysicalCollisionsX_ZeroVelocityRightCollision() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         PhysicalObject enemy = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
@@ -329,7 +329,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ThirdIfAllTrue() {
+    public void testCheckPhysicalCollisionsX_ThirdIfAllTrue() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         PhysicalObject enemy = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
@@ -348,7 +348,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ThirdIfFirstTrueSecondFalse() {
+    public void testCheckPhysicalCollisionsX_ThirdIfFirstTrueSecondFalse() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         PhysicalObject enemy = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
@@ -367,7 +367,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ThirdIfFirstFalseSecondTrue() {
+    public void testCheckPhysicalCollisionsX_ThirdIfFirstFalseSecondTrue() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         PhysicalObject enemy = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
@@ -386,7 +386,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ThirdIfAllFalse() {
+    public void testCheckPhysicalCollisionsX_ThirdIfAllFalse() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         PhysicalObject enemy = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
@@ -405,7 +405,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ZeroVelocityNoCollision() {
+    public void testCheckPhysicalCollisionsX_ZeroVelocityNoCollision() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         PhysicalObject enemy = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
@@ -421,7 +421,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_SameObjectVxGreaterThan0() {
+    public void testCheckPhysicalCollisionsX_SameObjectVxGreaterThan0() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
 
@@ -435,7 +435,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_SameObjectVxLowerThan0() {
+    public void testCheckPhysicalCollisionsX_SameObjectVxLowerThan0() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(-2f);
@@ -449,7 +449,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ZeroVelocityNonPhysicalObject() {
+    public void testCheckPhysicalCollisionsX_ZeroVelocityNonPhysicalObject() {
         PhysicalObject mainObject = mock(PhysicalObject.class);
         GameObject nonPhysicalObject = mock(GameObject.class); // Not a PhysicalObject
         Camera camera = mock(Camera.class);
@@ -464,7 +464,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_ResetPositionOnNoCollision() {
+    public void testCheckPhysicalCollisionsX_ResetPositionOnNoCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject mainObject = mock(PhysicalObject.class);
@@ -482,7 +482,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsX_NoVelocityRightCollisionWithEnemy() {
+    public void testCheckPhysicalCollisionsX_NoVelocityRightCollisionWithEnemy() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject mainObject = mock(PhysicalObject.class);
@@ -504,7 +504,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY() {
+    public void testCheckPhysicalCollisionsY() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -522,7 +522,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_BothConditionsTrue() {
+    public void testCheckPhysicalCollisionsY_BothConditionsTrue() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -539,7 +539,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_FirstConditionTrueSecondFalse() {
+    public void testCheckPhysicalCollisionsY_FirstConditionTrueSecondFalse() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -556,7 +556,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_FirstConditionFalseSecondTrue() {
+    public void testCheckPhysicalCollisionsY_FirstConditionFalseSecondTrue() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -573,7 +573,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_BothConditionsFalse() {
+    public void testCheckPhysicalCollisionsY_BothConditionsFalse() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -591,7 +591,7 @@ class ControllerLevelTest {
 
 
     @Test
-    void testCheckPhysicalCollisionsY_BlockBelow() {
+    public void testCheckPhysicalCollisionsY_BlockBelow() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject physicalObject = mock(PhysicalObject.class);
@@ -615,7 +615,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_JumpingUpwardCollision() {
+    public void testCheckPhysicalCollisionsY_JumpingUpwardCollision() {
         // Arrange
         ControllerLevel controllerLevel = new ControllerLevel();
 
@@ -647,7 +647,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_BlockBelowAndNotJumping() {
+    public void testCheckPhysicalCollisionsY_BlockBelowAndNotJumping() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -666,7 +666,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_NoBlockBelowAndNotJumping() {
+    public void testCheckPhysicalCollisionsY_NoBlockBelowAndNotJumping() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -685,7 +685,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_BlockBelowAndJumping() {
+    public void testCheckPhysicalCollisionsY_BlockBelowAndJumping() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -704,7 +704,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_NoBlockBelowAndJumping() {
+    public void testCheckPhysicalCollisionsY_NoBlockBelowAndJumping() {
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         BuildingBlock block = mock(BuildingBlock.class);
 
@@ -724,7 +724,7 @@ class ControllerLevelTest {
 
 
     @Test
-    void testCheckPhysicalCollisionsY_FallingDownwardCollision() {
+    public void testCheckPhysicalCollisionsY_FallingDownwardCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject physicalObject = mock(PhysicalObject.class);
@@ -743,7 +743,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_NoCollision() {
+    public void testCheckPhysicalCollisionsY_NoCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject physicalObject = mock(PhysicalObject.class);
@@ -762,7 +762,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckPhysicalCollisionsY_NoUpwardCollision() {
+    public void testCheckPhysicalCollisionsY_NoUpwardCollision() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject physicalObject = mock(PhysicalObject.class);
@@ -786,7 +786,7 @@ class ControllerLevelTest {
 
 
     @Test
-    void testCheckPhysicalCollisionsY_FallingState() {
+    public void testCheckPhysicalCollisionsY_FallingState() {
         ControllerLevel controllerLevel = new ControllerLevel();
 
         PhysicalObject physicalObject = mock(PhysicalObject.class);
@@ -802,7 +802,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckCollisions() {
+    public void testCheckCollisions() {
         Mario mario = mock(Mario.class);
         PhysicalObject physicalObject = mock(PhysicalObject.class);
         Camera camera = mock(Camera.class);
@@ -820,7 +820,7 @@ class ControllerLevelTest {
     }
 
     @Test
-    void testCheckCollisionsStaticObject() {
+    public void testCheckCollisionsStaticObject() {
         Mario mario = mock(Mario.class);
         StaticObject staticObject = mock(StaticObject.class);
         Camera camera = mock(Camera.class);

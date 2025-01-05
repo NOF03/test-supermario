@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 class SurpriseBlockTest {
 
     @Test
-    void testInitialState() {
+    public void testInitialState() {
         SurpriseBlock block = new SurpriseBlock(10, 20, 5, 5);
 
         // Verify initial state
@@ -21,7 +21,7 @@ class SurpriseBlockTest {
     }
 
     @Test
-    void testSettersAndGetters() {
+    public void testSettersAndGetters() {
         SurpriseBlock block = new SurpriseBlock(10, 20, 5, 5);
 
         // Test 'used' property
@@ -39,7 +39,7 @@ class SurpriseBlockTest {
     }
 
     @Test
-    void testGetImageWhenUnused() {
+    public void testGetImageWhenUnused() {
         SurpriseBlock block = new SurpriseBlock(10, 20, 5, 5);
         block.setUsed(false);
 
@@ -48,7 +48,7 @@ class SurpriseBlockTest {
     }
 
     @Test
-    void testGetImageWhenUsed() {
+    public void testGetImageWhenUsed() {
         SurpriseBlock block = new SurpriseBlock(10, 20, 5, 5);
         block.setUsed(true);
 
@@ -57,7 +57,7 @@ class SurpriseBlockTest {
     }
 
     @Test
-    void testGotHitWithUnusedBlock() {
+    public void testGotHitWithUnusedBlock() {
         SurpriseBlock block = new SurpriseBlock(10, 20, 5, 5);
         block.setUsed(false);
 
@@ -77,7 +77,7 @@ class SurpriseBlockTest {
     }
 
     @Test
-    void testGotHitWithAlreadyUsedBlock() {
+    public void testGotHitWithAlreadyUsedBlock() {
         SurpriseBlock block = new SurpriseBlock(10, 20, 5, 5);
         block.setUsed(true);
 
@@ -96,7 +96,7 @@ class SurpriseBlockTest {
     }
 
     @Test
-    void testFreeSurprise() {
+    public void testFreeSurprise() {
         SurpriseBlock block = new SurpriseBlock(10, 20, 5, 5);
 
         // Mock surprise
@@ -116,7 +116,7 @@ class SurpriseBlockTest {
     }
 
     @Test
-    void testVirtualCoordinates() {
+    public void testVirtualCoordinates() {
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(5.0f);
 

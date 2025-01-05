@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 class GameCommandTest {
 
     @Test
-    void testGameOverCommand() {
+    public void testGameOverCommand() {
         Game mockGame = mock(Game.class);
         StateGame mockStateGame = mock(StateGame.class);
 
@@ -28,7 +28,7 @@ class GameCommandTest {
     }
 
     @Test
-    void testInstructionsCommand() {
+    public void testInstructionsCommand() {
         // Mock the Game and its associated StateMenu and MenuModel
         Game mockGame = mock(Game.class);
         StateMenu mockStateMenu = mock(StateMenu.class);
@@ -48,7 +48,7 @@ class GameCommandTest {
 
 
     @Test
-    void testPauseCommand() {
+    public void testPauseCommand() {
         Game mockGame = mock(Game.class);
 
         PauseCommand command = new PauseCommand();
@@ -58,7 +58,7 @@ class GameCommandTest {
     }
 
     @Test
-    void testResumeCommand() {
+    public void testResumeCommand() {
         Game mockGame = mock(Game.class);
         StatePause mockStatePause = mock(StatePause.class);
         StateGame mockParentState = mock(StateGame.class);
@@ -73,7 +73,7 @@ class GameCommandTest {
     }
 
     @Test
-    void testStartGameCommand() throws IOException {
+    public void testStartGameCommand() throws IOException {
         Game mockGame = mock(Game.class);
         StateGame mockStateGame = mock(StateGame.class);
 
@@ -87,7 +87,7 @@ class GameCommandTest {
     }
 
     @Test
-    void testStartGameCommandException() {
+    public void testStartGameCommandException() {
         // Mock the Game class
         Game mockGame = mock(Game.class);
 
@@ -110,7 +110,7 @@ class GameCommandTest {
     }
 
     @Test
-    void testExitGameCommand() {
+    public void testExitGameCommand() {
         Game mockGame = mock(Game.class);
 
         ExitGameCommand command = new ExitGameCommand();
@@ -120,7 +120,7 @@ class GameCommandTest {
     }
 
     @Test
-    void testExitToMenuCommand() {
+    public void testExitToMenuCommand() {
         Game mockGame = mock(Game.class);
 
         ExitToMenuCommand command = new ExitToMenuCommand();

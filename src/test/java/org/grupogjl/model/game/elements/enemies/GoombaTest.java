@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 class GoombaTest {
 
     @Test
-    void testGoombaInitialization() {
+    public void testGoombaInitialization() {
         Goomba goomba = new Goomba(10, 20, 5, 5);
 
         // Verify initial properties
@@ -22,7 +22,7 @@ class GoombaTest {
     }
 
     @Test
-    void testGetVirtX() {
+    public void testGetVirtX() {
         Camera mockCamera = mock(Camera.class);
         when(mockCamera.getLeftCamLimit()).thenReturn(5.0f);
 
@@ -33,7 +33,7 @@ class GoombaTest {
     }
 
     @Test
-    void testGetVirtY() {
+    public void testGetVirtY() {
         Goomba goomba = new Goomba(10, 20, 5, 5);
 
         // Verify virtual Y coordinate
@@ -41,7 +41,7 @@ class GoombaTest {
     }
 
     @Test
-    void testGetImage() {
+    public void testGetImage() {
         Goomba goomba = new Goomba(10, 20, 5, 5);
 
         // Verify image

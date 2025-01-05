@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 class GoalBlockTest {
 
     @Test
-    void testGoalBlockFunctionality() {
+    public void testGoalBlockFunctionality() {
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(5.0f);
 

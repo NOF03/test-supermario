@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 class CameraTest {
 
     @Test
-    void testCameraInitialization() {
+    public void testCameraInitialization() {
         Camera camera = new Camera();
 
         // Test initial camera limits
@@ -19,7 +19,7 @@ class CameraTest {
     }
 
     @Test
-    void testUpdateCamera() {
+    public void testUpdateCamera() {
         Camera camera = new Camera();
         Mario mockMario = mock(Mario.class);
         when(mockMario.getX()).thenReturn(20.0f);
@@ -33,7 +33,7 @@ class CameraTest {
     }
 
     @Test
-    void testUpdateCameraElse() {
+    public void testUpdateCameraElse() {
         Camera camera = new Camera();
         Mario mockMario = mock(Mario.class);
         when(mockMario.getX()).thenReturn(2.0f);
@@ -47,7 +47,7 @@ class CameraTest {
     }
 
     @Test
-    void testIsEnemyOnCam() {
+    public void testIsEnemyOnCam() {
         Camera camera = new Camera();
         Enemy mockEnemy = mock(Enemy.class);
 
@@ -61,7 +61,7 @@ class CameraTest {
     }
 
     @Test
-    void testIsEnemyOnCam_AllConditionsTrue() {
+    public void testIsEnemyOnCam_AllConditionsTrue() {
         Camera camera = new Camera();
         Enemy mockEnemy = mock(Enemy.class);
 
@@ -77,7 +77,7 @@ class CameraTest {
     }
 
     @Test
-    void testIsEnemyOnCam_Condition1False() {
+    public void testIsEnemyOnCam_Condition1False() {
         Camera camera = new Camera();
         Enemy mockEnemy = mock(Enemy.class);
 
@@ -93,7 +93,7 @@ class CameraTest {
     }
 
     @Test
-    void testIsEnemyOnCam_Condition2False() {
+    public void testIsEnemyOnCam_Condition2False() {
         Camera camera = new Camera();
         Enemy mockEnemy = mock(Enemy.class);
 
@@ -109,7 +109,7 @@ class CameraTest {
     }
 
     @Test
-    void testIsEnemyOnCam_Condition3False() {
+    public void testIsEnemyOnCam_Condition3False() {
         Camera camera = new Camera();
         Enemy mockEnemy = mock(Enemy.class);
 
@@ -125,7 +125,7 @@ class CameraTest {
     }
 
     @Test
-    void testIsEnemyOnCam_AllConditionsFalse() {
+    public void testIsEnemyOnCam_AllConditionsFalse() {
         Camera camera = new Camera();
         Enemy mockEnemy = mock(Enemy.class);
 

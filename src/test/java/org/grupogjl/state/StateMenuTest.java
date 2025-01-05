@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
 class StateMenuTest {
 
     @Test
-    void testGetModel() {
+    public void testGetModel() {
         // Arrange
         StateMenu stateMenu = new StateMenu();
 
@@ -29,7 +29,7 @@ class StateMenuTest {
     }
 
     @Test
-    void testGetState() {
+    public void testGetState() {
         // Arrange
         StateMenu stateMenu = new StateMenu();
 
@@ -41,7 +41,7 @@ class StateMenuTest {
     }
 
     @Test
-    void testStepCallsControllerAndViewer() throws IOException {
+    public void testStepCallsControllerAndViewer() throws IOException {
         // Arrange
         Game mockGame = mock(Game.class);
         LanternaGui mockGui = mock(LanternaGui.class);
@@ -63,7 +63,7 @@ class StateMenuTest {
     }
 
     @Test
-    void testStepThrowsIOException() throws IOException {
+    public void testStepThrowsIOException() throws IOException {
         // Arrange
         Game mockGame = mock(Game.class);
         LanternaGui mockGui = mock(LanternaGui.class);
@@ -88,7 +88,7 @@ class StateMenuTest {
     }
 
     @Test
-    void testSetController() {
+    public void testSetController() {
         // Arrange
         StateMenu stateMenu = new StateMenu();
         ControllerMenu mockController = mock(ControllerMenu.class);
@@ -101,7 +101,7 @@ class StateMenuTest {
     }
 
     @Test
-    void testSetViewer() {
+    public void testSetViewer() {
         // Arrange
         StateMenu stateMenu = new StateMenu();
         ViewerMenu mockViewer = mock(ViewerMenu.class);

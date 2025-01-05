@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 class ViewerGameTest {
 
     @Test
-    void testDrawGameOver() throws IOException {
+    public void testDrawGameOver() throws IOException {
         GeneralGui mockGui = mock(GeneralGui.class);
         StateGame mockState = mock(StateGame.class);
         ViewerGame viewerGame = new ViewerGame();
@@ -33,7 +33,7 @@ class ViewerGameTest {
     }
 
     @Test
-    void testDrawGameObjects() throws IOException {
+    public void testDrawGameObjects() throws IOException {
         GeneralGui mockGui = mock(GeneralGui.class);
         StateGame mockState = mock(StateGame.class);
         ViewerGame viewerGame = new ViewerGame();
@@ -77,7 +77,7 @@ class ViewerGameTest {
     }
 
     @Test
-    void testObjectWithinBounds() throws IOException {
+    public void testObjectWithinBounds() throws IOException {
         GeneralGui mockGui = mock(GeneralGui.class);
         StateGame mockState = mock(StateGame.class);
         ViewerGame viewerGame = new ViewerGame();
@@ -112,7 +112,7 @@ class ViewerGameTest {
     }
 
     @Test
-    void testObjectGreaterThanRightLimit() throws IOException {
+    public void testObjectGreaterThanRightLimit() throws IOException {
         GeneralGui mockGui = mock(GeneralGui.class);
         StateGame mockState = mock(StateGame.class);
         ViewerGame viewerGame = new ViewerGame();
@@ -147,7 +147,7 @@ class ViewerGameTest {
     }
 
     @Test
-    void testObjectLessThanLeftLimitMinusOne() throws IOException {
+    public void testObjectLessThanLeftLimitMinusOne() throws IOException {
         GeneralGui mockGui = mock(GeneralGui.class);
         StateGame mockState = mock(StateGame.class);
         ViewerGame viewerGame = new ViewerGame();
@@ -182,7 +182,7 @@ class ViewerGameTest {
     }
 
     @Test
-    void testObjectOutsideBoundsBothConditionsTrue() throws IOException {
+    public void testObjectOutsideBoundsBothConditionsTrue() throws IOException {
         GeneralGui mockGui = mock(GeneralGui.class);
         StateGame mockState = mock(StateGame.class);
         ViewerGame viewerGame = new ViewerGame();

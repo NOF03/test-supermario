@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 class UnbreakableBlockTest {
 
     @Test
-    void testUnbreakableBlockFunctionality() {
+    public void testUnbreakableBlockFunctionality() {
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(5.0f);
 

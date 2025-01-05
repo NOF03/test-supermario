@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 class KoopaTroopaTest {
 
     @Test
-    void testKoopaTroopaInitialization() {
+    public void testKoopaTroopaInitialization() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
 
         // Verify initial properties
@@ -22,7 +22,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testMoveLeftWithTwoLives() {
+    public void testMoveLeftWithTwoLives() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
         koopa.moveLeft();
 
@@ -31,7 +31,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testMoveLeftWithOneLife() {
+    public void testMoveLeftWithOneLife() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
         koopa.setLives(1);
         koopa.moveLeft();
@@ -41,7 +41,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testMoveRightWithTwoLives() {
+    public void testMoveRightWithTwoLives() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
         koopa.moveRight();
 
@@ -50,7 +50,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testMoveRightWithOneLife() {
+    public void testMoveRightWithOneLife() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
         koopa.setLives(1);
         koopa.moveRight();
@@ -60,7 +60,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testGetVirtX() {
+    public void testGetVirtX() {
         Camera mockCamera = mock(Camera.class);
         when(mockCamera.getLeftCamLimit()).thenReturn(5.0f);
 
@@ -71,7 +71,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testGetVirtYWithTwoLives() {
+    public void testGetVirtYWithTwoLives() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
 
         // Verify virtual Y coordinate when lives = 2
@@ -79,7 +79,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testGetVirtYWithOneLife() {
+    public void testGetVirtYWithOneLife() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
         koopa.setLives(1);
 
@@ -88,7 +88,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testGetImageWithTwoLives() {
+    public void testGetImageWithTwoLives() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
 
         // Verify image when lives = 2
@@ -96,7 +96,7 @@ class KoopaTroopaTest {
     }
 
     @Test
-    void testGetImageWithOneLife() {
+    public void testGetImageWithOneLife() {
         KoopaTroopa koopa = new KoopaTroopa(10, 20, 5, 5);
         koopa.setLives(1);
 

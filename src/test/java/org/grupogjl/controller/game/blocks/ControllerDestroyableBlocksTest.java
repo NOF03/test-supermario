@@ -36,7 +36,7 @@ class ControllerDestroyableBlocksTest {
     private List<DestroyableBlock> destroyableBlocks;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         destroyableBlocks = new ArrayList<>();
         destroyableBlocks.add(mockBlock1);
         destroyableBlocks.add(mockBlock2);
@@ -45,7 +45,7 @@ class ControllerDestroyableBlocksTest {
     }
 
     @Test
-    void shouldRemoveBlocksWithZeroOrNegativeStrength() {
+    public void shouldRemoveBlocksWithZeroOrNegativeStrength() {
         // Given
         when(mockBlock1.getStrenght()).thenReturn(0);
         when(mockBlock2.getStrenght()).thenReturn(-1);
@@ -61,7 +61,7 @@ class ControllerDestroyableBlocksTest {
     }
 
     @Test
-    void shouldNotRemoveBlocksWithPositiveStrength() {
+    public void shouldNotRemoveBlocksWithPositiveStrength() {
         // Given
         when(mockBlock1.getStrenght()).thenReturn(5);
         when(mockBlock2.getStrenght()).thenReturn(3);
@@ -77,7 +77,7 @@ class ControllerDestroyableBlocksTest {
     }
 
     @Test
-    void stepShouldInvokeUpdateStatus() {
+    public void stepShouldInvokeUpdateStatus() {
         // When
         controllerDestroyableBlocks.step(mockLevel, GeneralGui.ACTION.NONE, MOCK_TIME);
 

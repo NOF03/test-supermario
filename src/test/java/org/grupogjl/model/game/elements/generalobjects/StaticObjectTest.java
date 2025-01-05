@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class StaticObjectTest {
 
     @Test
-    void testStaticObjectSettersAndGetters() {
+    public void testStaticObjectSettersAndGetters() {
         StaticObject staticObject = new StaticObject(0, 0, 10, 10) {
             @Override
             public String getImage() {

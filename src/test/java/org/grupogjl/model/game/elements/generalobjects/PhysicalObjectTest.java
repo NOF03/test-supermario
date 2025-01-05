@@ -45,7 +45,7 @@ class PhysicalObjectTest {
     };
 
     @Test
-    void testUpdateLocation_JumpingOnly() {
+    public void testUpdateLocation_JumpingOnly() {
         physicalObject.setJumping(true);
         physicalObject.setVy(1.0f); // Starting vertical velocity
         physicalObject.setFalling(false);
@@ -62,7 +62,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testUpdateLocation_FallingOnly() {
+    public void testUpdateLocation_FallingOnly() {
         physicalObject.setJumping(false);
         physicalObject.setFalling(true);
         physicalObject.setVy(1.0f); // Starting vertical velocity
@@ -79,7 +79,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testUpdateLocation_FallingOnly_Vy15() {
+    public void testUpdateLocation_FallingOnly_Vy15() {
         physicalObject.setJumping(false);
         physicalObject.setFalling(true);
         physicalObject.setVy(1.5f); // Starting vertical velocity
@@ -93,14 +93,13 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testUpdateLocation_JumpingEndsAndTransitionToFalling() {
+    public void testUpdateLocation_JumpingEndsAndTransitionToFalling() {
         physicalObject.setJumping(true);
         physicalObject.setVy(0.1f); // Vertical velocity close to zero
         physicalObject.setFalling(false);
 
         physicalObject.updateLocation();
 
-        float expectedVy = 0.1f - 0.23f; // vy decreases below zero
         float expectedY = 0.0f - 0.1f; // y decreases by previous vy
 
         assertThat(physicalObject.getVy()).isEqualTo(-0.13f); // vy reset to 0
@@ -111,7 +110,7 @@ class PhysicalObjectTest {
 
 
     @Test
-    void testUpdateLocation_NotJumpingOrFalling() {
+    public void testUpdateLocation_NotJumpingOrFalling() {
         physicalObject.setJumping(false);
         physicalObject.setFalling(false);
         physicalObject.setVy(1.0f);
@@ -120,7 +119,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_AllConditionsTrue() {
+    public void testCollidesWithStatic_AllConditionsTrue() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -141,7 +140,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_xOverlapFalse() {
+    public void testCollidesWithStatic_xOverlapFalse() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -162,7 +161,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_verticalOverlapFalse() {
+    public void testCollidesWithStatic_verticalOverlapFalse() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -183,7 +182,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_NoOverlap() {
+    public void testCollidesWithStatic_NoOverlap() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -204,7 +203,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_OnlyXOverlapTrue() {
+    public void testCollidesWithStatic_OnlyXOverlapTrue() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -225,7 +224,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_OnlyVerticalOverlapTrue() {
+    public void testCollidesWithStatic_OnlyVerticalOverlapTrue() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -246,7 +245,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_ThisTopLessThanOtherBottom_ThisBottomNotGreaterThanOtherTop() {
+    public void testCollidesWithStatic_ThisTopLessThanOtherBottom_ThisBottomNotGreaterThanOtherTop() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -263,7 +262,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_ThisTopNotLessThanOtherBottom_ThisBottomGreaterThanOtherTop() {
+    public void testCollidesWithStatic_ThisTopNotLessThanOtherBottom_ThisBottomGreaterThanOtherTop() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -280,7 +279,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_NoVerticalOverlap() {
+    public void testCollidesWithStatic_NoVerticalOverlap() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -298,7 +297,7 @@ class PhysicalObjectTest {
 
 
     @Test
-    void testCollidesWithStatic_XOverlapBoundaryCase() {
+    public void testCollidesWithStatic_XOverlapBoundaryCase() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -315,7 +314,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic_VerticalOverlapBoundaryCase() {
+    public void testCollidesWithStatic_VerticalOverlapBoundaryCase() {
         PhysicalObject physicalObject = mock(PhysicalObject.class, CALLS_REAL_METHODS);
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -332,7 +331,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithStatic() {
+    public void testCollidesWithStatic() {
         when(staticObjectMock.getX()).thenReturn(5.0f);
         when(staticObjectMock.getY()).thenReturn(5.0f);
         when(staticObjectMock.getWidth()).thenReturn(10.0f);
@@ -344,7 +343,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWithPhysical() {
+    public void testCollidesWithPhysical() {
         PhysicalObject otherPhysicalObject = new PhysicalObject(5, 5, 10, 10) {
             @Override
             public void handleCollision(GameObject object, char r) {
@@ -376,7 +375,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWith_StaticObject() {
+    public void testCollidesWith_StaticObject() {
         StaticObject mockObject = mock(StaticObject.class);
         when(mockObject.getX()).thenReturn(5.0f);
         when(mockObject.getY()).thenReturn(5.0f);
@@ -389,7 +388,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWith_PhysicalObject() {
+    public void testCollidesWith_PhysicalObject() {
         PhysicalObject mockObject = mock(PhysicalObject.class);
         when(mockObject.getX()).thenReturn(5.0f);
         when(mockObject.getY()).thenReturn(5.0f);
@@ -402,7 +401,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWith_PhysicalObjectXOverlapTrueTrue() {
+    public void testCollidesWith_PhysicalObjectXOverlapTrueTrue() {
         PhysicalObject mockObject = mock(PhysicalObject.class);
         when(mockObject.getX()).thenReturn(5.0f);
         when(mockObject.getY()).thenReturn(5.0f);
@@ -415,7 +414,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWith_PhysicalObjectXOverlapTrueFalse() {
+    public void testCollidesWith_PhysicalObjectXOverlapTrueFalse() {
         PhysicalObject mockObject = mock(PhysicalObject.class);
         when(mockObject.getX()).thenReturn(15.0f);
         when(mockObject.getY()).thenReturn(5.0f);
@@ -428,7 +427,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWith_PhysicalObjectXOverlapFalseTrue() {
+    public void testCollidesWith_PhysicalObjectXOverlapFalseTrue() {
         PhysicalObject mockObject = mock(PhysicalObject.class);
         when(mockObject.getX()).thenReturn(-15.0f);
         when(mockObject.getY()).thenReturn(5.0f);
@@ -441,7 +440,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWith_PhysicalObjectVerticalOverlapTrueFalse() {
+    public void testCollidesWith_PhysicalObjectVerticalOverlapTrueFalse() {
         PhysicalObject mockObject = mock(PhysicalObject.class);
         when(mockObject.getX()).thenReturn(-15.0f);
         when(mockObject.getY()).thenReturn(5.0f);
@@ -454,7 +453,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWith_PhysicalObjectVerticalOverlapFalseTrue() {
+    public void testCollidesWith_PhysicalObjectVerticalOverlapFalseTrue() {
         PhysicalObject mockObject = mock(PhysicalObject.class);
         when(mockObject.getX()).thenReturn(-15.0f);
         when(mockObject.getY()).thenReturn(-15.0f);
@@ -467,7 +466,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testCollidesWith_PhysicalObjectTrueFalse() {
+    public void testCollidesWith_PhysicalObjectTrueFalse() {
         PhysicalObject mockObject = mock(PhysicalObject.class);
         when(mockObject.getX()).thenReturn(5.0f);
         when(mockObject.getY()).thenReturn(-15.0f);
@@ -480,7 +479,7 @@ class PhysicalObjectTest {
     }
 
     @Test
-    void testSettersAndGetters() {
+    public void testSettersAndGetters() {
         physicalObject.setX(10);
         physicalObject.setY(20);
         physicalObject.setWidth(30);

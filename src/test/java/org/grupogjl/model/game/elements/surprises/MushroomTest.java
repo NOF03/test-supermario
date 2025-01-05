@@ -13,21 +13,21 @@ class MushroomTest {
     private Mushroom mushroom;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         mushroom = mock(Mushroom.class, CALLS_REAL_METHODS);
         mushroom.setX(10);
         mushroom.setY(20);
     }
 
     @Test
-    void testBorn() {
+    public void testBorn() {
         mushroom.born();
         assertThat(mushroom.getVx()).isEqualTo(0.2f);
         assertThat(mushroom.isFalling()).isTrue();
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectUp() {
+    public void testHandleCollisionWithStaticObjectUp() {
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(30f);
 
@@ -38,7 +38,7 @@ class MushroomTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectDown() {
+    public void testHandleCollisionWithStaticObjectDown() {
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(30f);
         when(mockStaticObject.getHeight()).thenReturn(5f);
@@ -52,7 +52,7 @@ class MushroomTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectLeft() {
+    public void testHandleCollisionWithStaticObjectLeft() {
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getX()).thenReturn(5f);
         when(mockStaticObject.getWidth()).thenReturn(3f);
@@ -64,7 +64,7 @@ class MushroomTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectRight() {
+    public void testHandleCollisionWithStaticObjectRight() {
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getX()).thenReturn(15f);
 
@@ -75,7 +75,7 @@ class MushroomTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectOtherDirection() {
+    public void testHandleCollisionWithStaticObjectOtherDirection() {
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getX()).thenReturn(15f);
 
@@ -86,7 +86,7 @@ class MushroomTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectNotStatic() {
+    public void testHandleCollisionWithStaticObjectNotStatic() {
         PhysicalObject mockStaticObject = mock(PhysicalObject.class);
         when(mockStaticObject.getX()).thenReturn(15f);
 

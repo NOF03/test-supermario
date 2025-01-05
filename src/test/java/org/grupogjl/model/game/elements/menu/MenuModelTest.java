@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MenuModelTest {
 
     @Test
-    void testMenuModelInitialization() {
+    public void testMenuModelInitialization() {
         MenuModel menuModel = new MenuModel();
 
         Vector<Button> buttons = menuModel.getButtons();

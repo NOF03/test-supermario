@@ -33,13 +33,13 @@ class ControllerMenuTest {
     private ControllerMenu controllerMenu;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         when(mockGame.getStateMenu()).thenReturn(mockStateMenu);
         when(mockStateMenu.getModel()).thenReturn(mockMenu);
     }
 
     @Test
-    void shouldDeselectOptionWhenOptionIsSelectedAndActionIsSelect() {
+    public void shouldDeselectOptionWhenOptionIsSelectedAndActionIsSelect() {
         // Given
         when(mockMenu.isSelectedOption()).thenReturn(true);
 
@@ -54,7 +54,7 @@ class ControllerMenuTest {
     }
 
     @Test
-    void shouldDeselectOptionWhenOptionIsSelectedAndActionIsNotSelect() {
+    public void shouldDeselectOptionWhenOptionIsSelectedAndActionIsNotSelect() {
         // Given
         when(mockMenu.isSelectedOption()).thenReturn(true);
 
@@ -69,7 +69,7 @@ class ControllerMenuTest {
     }
 
     @Test
-    void shouldGoToNextPositionWhenOptionIsNotSelectedAndActionIsDown() {
+    public void shouldGoToNextPositionWhenOptionIsNotSelectedAndActionIsDown() {
         // Given
         when(mockMenu.isSelectedOption()).thenReturn(false);
 
@@ -84,7 +84,7 @@ class ControllerMenuTest {
     }
 
     @Test
-    void shouldGoToLastPositionWhenOptionIsNotSelectedAndActionIsUp() {
+    public void shouldGoToLastPositionWhenOptionIsNotSelectedAndActionIsUp() {
         // Given
         when(mockMenu.isSelectedOption()).thenReturn(false);
 
@@ -99,7 +99,7 @@ class ControllerMenuTest {
     }
 
     @Test
-    void shouldExecuteOptionWhenOptionIsNotSelectedAndActionIsSelect() {
+    public void shouldExecuteOptionWhenOptionIsNotSelectedAndActionIsSelect() {
         // Given
         when(mockMenu.isSelectedOption()).thenReturn(false);
 

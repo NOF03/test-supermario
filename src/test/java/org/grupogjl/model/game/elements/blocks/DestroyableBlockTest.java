@@ -11,7 +11,7 @@ import static org.mockito.Mockito.when;
 class DestroyableBlockTest {
 
     @Test
-    void testDestroyableBlockFunctionality() {
+    public void testDestroyableBlockFunctionality() {
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(5.0f);
 
@@ -41,7 +41,7 @@ class DestroyableBlockTest {
     }
 
     @Test
-    void testGotHitWithMarioStateFireNoStateBig() {
+    public void testGotHitWithMarioStateFireNoStateBig() {
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(5.0f);
 
@@ -57,7 +57,7 @@ class DestroyableBlockTest {
     }
 
     @Test
-    void testGotHitWithMarioStateFireStateBig() {
+    public void testGotHitWithMarioStateFireStateBig() {
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(5.0f);
 
@@ -73,7 +73,7 @@ class DestroyableBlockTest {
     }
 
     @Test
-    void testGotHitWithMarioNoStateFireNoStateBig() {
+    public void testGotHitWithMarioNoStateFireNoStateBig() {
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(5.0f);
 

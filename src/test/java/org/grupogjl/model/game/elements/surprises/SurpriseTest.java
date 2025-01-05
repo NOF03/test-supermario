@@ -13,12 +13,12 @@ class SurpriseTest {
     private Surprise surprise;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         surprise = mock(Surprise.class, CALLS_REAL_METHODS);
     }
 
     @Test
-    void testInitialization() {
+    public void testInitialization() {
         when(surprise.getX()).thenReturn(10f);
         when(surprise.getY()).thenReturn(20f);
 
@@ -28,7 +28,7 @@ class SurpriseTest {
     }
 
     @Test
-    void testSetAndGetActivated() {
+    public void testSetAndGetActivated() {
         surprise.setActivated(true);
         assertThat(surprise.isActivated()).isTrue();
 
@@ -37,7 +37,7 @@ class SurpriseTest {
     }
 
     @Test
-    void testHandleWallCollision() {
+    public void testHandleWallCollision() {
         surprise.setX(15);
         surprise.setVx(5);
 
@@ -48,7 +48,7 @@ class SurpriseTest {
     }
 
     @Test
-    void testActivate() {
+    public void testActivate() {
         Mario mockMario = mock(Mario.class);
         doNothing().when(surprise).activate(mockMario);
 
@@ -58,7 +58,7 @@ class SurpriseTest {
     }
 
     @Test
-    void testBorn() {
+    public void testBorn() {
         doNothing().when(surprise).born();
 
         surprise.born();
@@ -67,7 +67,7 @@ class SurpriseTest {
     }
 
     @Test
-    void testHandleCollision() {
+    public void testHandleCollision() {
         GameObject mockGameObject = mock(GameObject.class);
 
         doNothing().when(surprise).handleCollision(eq(mockGameObject), anyChar());

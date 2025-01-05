@@ -12,7 +12,7 @@ import static org.mockito.Mockito.when;
 class EnemyTest {
 
     @Test
-    void testEnemyInitialization() {
+    public void testEnemyInitialization() {
         Enemy enemy = createTestEnemy();
 
         // Verify initial values
@@ -24,7 +24,7 @@ class EnemyTest {
     }
 
     @Test
-    void testEnemySettersAndGetters() {
+    public void testEnemySettersAndGetters() {
         Enemy enemy = createTestEnemy();
 
         // Test lives
@@ -37,7 +37,7 @@ class EnemyTest {
     }
 
     @Test
-    void testMoveLeft() {
+    public void testMoveLeft() {
         Enemy enemy = createTestEnemy();
         enemy.moveLeft();
 
@@ -46,7 +46,7 @@ class EnemyTest {
     }
 
     @Test
-    void testMoveRight() {
+    public void testMoveRight() {
         Enemy enemy = createTestEnemy();
         enemy.moveRight();
 
@@ -55,7 +55,7 @@ class EnemyTest {
     }
 
     @Test
-    void testHandleWallCollision() {
+    public void testHandleWallCollision() {
         Enemy enemy = createTestEnemy();
         enemy.setVx(1.0f);
 
@@ -68,7 +68,7 @@ class EnemyTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemy() {
+    public void testHandleCollisionWithEnemy() {
         Enemy enemy = createTestEnemy();
         Enemy otherEnemy = mock(Enemy.class);
 
@@ -82,7 +82,7 @@ class EnemyTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObject() {
+    public void testHandleCollisionWithStaticObject() {
         Enemy enemy = createTestEnemy();
         StaticObject staticObject = mock(StaticObject.class);
 
@@ -120,7 +120,7 @@ class EnemyTest {
     }
 
     @Test
-    void testHandleCollisionWithOtherObject() {
+    public void testHandleCollisionWithOtherObject() {
         Enemy enemy = createTestEnemy();
         GameObject otherObject = mock(GameObject.class);
 

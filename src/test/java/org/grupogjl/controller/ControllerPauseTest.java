@@ -33,13 +33,13 @@ class ControllerPauseTest {
     private ControllerPause controllerPause;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         when(mockGame.getStatePause()).thenReturn(mockStatePause);
         when(mockStatePause.getModel()).thenReturn(mockMenu);
     }
 
     @Test
-    void shouldGoToNextPositionWhenActionIsDown() {
+    public void shouldGoToNextPositionWhenActionIsDown() {
         // When
         controllerPause.step(mockGame, GeneralGui.ACTION.DOWN, MOCK_TIME);
 
@@ -50,7 +50,7 @@ class ControllerPauseTest {
     }
 
     @Test
-    void shouldGoToLastPositionWhenActionIsUp() {
+    public void shouldGoToLastPositionWhenActionIsUp() {
         // When
         controllerPause.step(mockGame, GeneralGui.ACTION.UP, MOCK_TIME);
 
@@ -61,7 +61,7 @@ class ControllerPauseTest {
     }
 
     @Test
-    void shouldExecuteOptionWhenActionIsSelect() {
+    public void shouldExecuteOptionWhenActionIsSelect() {
         // When
         controllerPause.step(mockGame, GeneralGui.ACTION.SELECT, MOCK_TIME);
 

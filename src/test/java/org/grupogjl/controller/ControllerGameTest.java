@@ -55,14 +55,14 @@ class ControllerGameTest {
     private ControllerGame controllerGame;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         when(mockGame.getStateGame()).thenReturn(mockStateGame);
         when(mockStateGame.getModel()).thenReturn(mockLevel);
         when(mockLevel.getMario()).thenReturn(mockMario);
     }
 
     @Test
-    void shouldExecuteGameOverCommandWhenLivesAreZero() throws IOException {
+    public void shouldExecuteGameOverCommandWhenLivesAreZero() throws IOException {
         // Given
         when(mockMario.getLives()).thenReturn(0);
 
@@ -77,7 +77,7 @@ class ControllerGameTest {
     }
 
     @Test
-    void shouldExecuteExitToMenuCommandWhenLivesAreZeroAndActionIsSelect() throws IOException {
+    public void shouldExecuteExitToMenuCommandWhenLivesAreZeroAndActionIsSelect() throws IOException {
         // Given
         when(mockMario.getLives()).thenReturn(0);
 
@@ -92,7 +92,7 @@ class ControllerGameTest {
     }
 
     @Test
-    void shouldExecutePauseCommandWhenActionIsQuitAndLivesAreNotZero() throws IOException {
+    public void shouldExecutePauseCommandWhenActionIsQuitAndLivesAreNotZero() throws IOException {
         // Given
         when(mockMario.getLives()).thenReturn(3);
 
@@ -107,7 +107,7 @@ class ControllerGameTest {
     }
 
     @Test
-    void shouldDelegateToControllerLevelWhenActionIsNotQuitAndLivesAreNotZero() throws IOException {
+    public void shouldDelegateToControllerLevelWhenActionIsNotQuitAndLivesAreNotZero() throws IOException {
         // Given
         when(mockMario.getLives()).thenReturn(3);
 

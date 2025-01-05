@@ -11,7 +11,7 @@ import static org.mockito.Mockito.verify;
 class ButtonTest {
 
     @Test
-    void testButtonInitialization() {
+    public void testButtonInitialization() {
         GameCommand mockCommand = mock(GameCommand.class);
         Button button = new Button("Start", mockCommand);
 
@@ -20,7 +20,7 @@ class ButtonTest {
     }
 
     @Test
-    void testButtonOnPressed() {
+    public void testButtonOnPressed() {
         GameCommand mockCommand = mock(GameCommand.class);
         Game mockGame = mock(Game.class);
         Button button = new Button("Start", mockCommand);

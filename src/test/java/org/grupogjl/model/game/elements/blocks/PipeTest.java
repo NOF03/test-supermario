@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 class PipeTest {
 
     @Test
-    void testPipeFunctionality() {
+    public void testPipeFunctionality() {
         Camera camera = mock(Camera.class);
         when(camera.getLeftCamLimit()).thenReturn(5.0f);
 

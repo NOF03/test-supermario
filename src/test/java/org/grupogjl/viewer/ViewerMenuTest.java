@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 class ViewerMenuTest {
 
     @Test
-    void testDrawWithSelectedOption() throws IOException {
+    public void testDrawWithSelectedOption() throws IOException {
         // Arrange
         GeneralGui mockGui = mock(GeneralGui.class);
         StateMenu mockStateMenu = mock(StateMenu.class);
@@ -50,7 +50,7 @@ class ViewerMenuTest {
     }
 
     @Test
-    void testDrawWithButtons() throws IOException {
+    public void testDrawWithButtons() throws IOException {
         // Arrange
         GeneralGui mockGui = mock(GeneralGui.class);
         StateMenu mockStateMenu = mock(StateMenu.class);
@@ -85,7 +85,7 @@ class ViewerMenuTest {
     }
 
     @Test
-    void testDrawWithEmptyButtons() throws IOException {
+    public void testDrawWithEmptyButtons() throws IOException {
         // Arrange
         GeneralGui mockGui = mock(GeneralGui.class);
         StateMenu mockStateMenu = mock(StateMenu.class);

@@ -6,17 +6,14 @@ import org.grupogjl.state.StateMenu;
 import org.grupogjl.state.StatePause;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 
 class GameTest {
     private LanternaGui mockGui;
@@ -24,7 +21,7 @@ class GameTest {
 
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         // Mock dependencies
         mockGui = mock(LanternaGui.class);
         // Inject mocked dependencies
@@ -32,7 +29,7 @@ class GameTest {
     }
 
     @Test
-    void testGetInstance_CreatesSingleton() throws FontFormatException, IOException, URISyntaxException {
+    public void testGetInstance_CreatesSingleton() throws FontFormatException, IOException, URISyntaxException {
         Game instance1 = Game.getInstance();
         Game instance2 = Game.getInstance();
 
@@ -40,60 +37,60 @@ class GameTest {
     }
 
     @Test
-    void testGetState_DefaultIsStateMenu() {
+    public void testGetState_DefaultIsStateMenu() {
         assertThat(game.getState()).isInstanceOf(StateMenu.class);
     }
 
     @Test
-    void testGetGui_ReturnsGuiInstance() {
+    public void testGetGui_ReturnsGuiInstance() {
         assertThat(game.getGui()).isEqualTo(mockGui);
     }
 
     @Test
-    void testSetStateMenu_SetsStateToStateMenu() {
+    public void testSetStateMenu_SetsStateToStateMenu() {
         game.setStateMenu();
         assertThat(game.getState()).isInstanceOf(StateMenu.class);
     }
 
     @Test
-    void testSetStateGame_SetsStateToStateGame() throws IOException {
+    public void testSetStateGame_SetsStateToStateGame() throws IOException {
         game.setStateGame();
         assertThat(game.getState()).isInstanceOf(StateGame.class);
     }
 
     @Test
-    void testSetStatePause_SetsStateToStatePause() throws IOException {
+    public void testSetStatePause_SetsStateToStatePause() throws IOException {
         game.setStateGame(); // State must be StateGame before pause
         game.setStatePause();
         assertThat(game.getState()).isInstanceOf(StatePause.class);
     }
 
     @Test
-    void testSetStateNull_SetsStateToNull() {
+    public void testSetStateNull_SetsStateToNull() {
         game.setStateNull();
         assertThat(game.getState()).isNull();
     }
 
     @Test
-    void testGetStateGame_WhenStateIsStateGame() throws IOException {
+    public void testGetStateGame_WhenStateIsStateGame() throws IOException {
         game.setStateGame();
         StateGame stateGame = game.getStateGame();
         assertThat(stateGame).isNotNull();
     }
 
     @Test
-    void testGetStateGame_ThrowsExceptionWhenNotStateGame() {
+    public void testGetStateGame_ThrowsExceptionWhenNotStateGame() {
         assertThrows(ClassCastException.class, () -> game.getStateGame());
     }
 
     @Test
-    void testGetStateMenu_WhenStateIsStateMenu() {
+    public void testGetStateMenu_WhenStateIsStateMenu() {
         StateMenu stateMenu = game.getStateMenu();
         assertThat(stateMenu).isNotNull();
     }
 
     @Test
-    void testGetStatePause_WhenStateIsStatePause() throws IOException {
+    public void testGetStatePause_WhenStateIsStatePause() throws IOException {
         game.setStateGame();
         game.setStatePause();
         StatePause statePause = game.getStatePause();

@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
 class StatePauseTest {
 
     @Test
-    void testGetModel() {
+    public void testGetModel() {
         // Arrange
         StateGame mockParent = mock(StateGame.class);
         StatePause statePause = new StatePause(mockParent);
@@ -30,7 +30,7 @@ class StatePauseTest {
     }
 
     @Test
-    void testGetState() {
+    public void testGetState() {
         // Arrange
         StateGame mockParent = mock(StateGame.class);
         StatePause statePause = new StatePause(mockParent);
@@ -43,7 +43,7 @@ class StatePauseTest {
     }
 
     @Test
-    void testGetParent() {
+    public void testGetParent() {
         // Arrange
         StateGame mockParent = mock(StateGame.class);
         StatePause statePause = new StatePause(mockParent);
@@ -56,7 +56,7 @@ class StatePauseTest {
     }
 
     @Test
-    void testStepCallsControllerParentAndViewer() throws IOException {
+    public void testStepCallsControllerParentAndViewer() throws IOException {
         // Arrange
         Game mockGame = mock(Game.class);
         LanternaGui mockGui = mock(LanternaGui.class);
@@ -80,7 +80,7 @@ class StatePauseTest {
     }
 
     @Test
-    void testStepThrowsIOException() throws IOException {
+    public void testStepThrowsIOException() throws IOException {
         // Arrange
         Game mockGame = mock(Game.class);
         LanternaGui mockGui = mock(LanternaGui.class);
@@ -107,7 +107,7 @@ class StatePauseTest {
     }
 
     @Test
-    void testSetController() {
+    public void testSetController() {
         // Arrange
         StateGame mockParent = mock(StateGame.class);
         StatePause statePause = new StatePause(mockParent);
@@ -121,7 +121,7 @@ class StatePauseTest {
     }
 
     @Test
-    void testSetViewer() {
+    public void testSetViewer() {
         // Arrange
         StateGame mockParent = mock(StateGame.class);
         StatePause statePause = new StatePause(mockParent);

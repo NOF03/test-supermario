@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PauseModelTest {
 
     @Test
-    void testPauseModelInitialization() {
+    public void testPauseModelInitialization() {
         PauseModel pauseModel = new PauseModel();
 
         Vector<Button> buttons = pauseModel.getButtons();

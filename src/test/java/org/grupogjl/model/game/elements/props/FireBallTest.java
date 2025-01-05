@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 class FireBallTest {
 
     @Test
-    void testFireBallInitialization() {
+    public void testFireBallInitialization() {
         FireBall fireBall = new FireBall(10, 20);
 
         // Verify initial properties
@@ -27,7 +27,7 @@ class FireBallTest {
     }
 
     @Test
-    void testSetAndGetActive() {
+    public void testSetAndGetActive() {
         FireBall fireBall = new FireBall(10, 20);
         fireBall.setActive(false);
 
@@ -36,7 +36,7 @@ class FireBallTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectUp() {
+    public void testHandleCollisionWithStaticObjectUp() {
         FireBall fireBall = new FireBall(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -50,7 +50,7 @@ class FireBallTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectDown() {
+    public void testHandleCollisionWithStaticObjectDown() {
         FireBall fireBall = new FireBall(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getY()).thenReturn(25f);
@@ -67,7 +67,7 @@ class FireBallTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectLeft() {
+    public void testHandleCollisionWithStaticObjectLeft() {
         FireBall fireBall = new FireBall(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getX()).thenReturn(5f);
@@ -82,7 +82,7 @@ class FireBallTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectRight() {
+    public void testHandleCollisionWithStaticObjectRight() {
         FireBall fireBall = new FireBall(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getX()).thenReturn(15f);
@@ -96,7 +96,7 @@ class FireBallTest {
     }
 
     @Test
-    void testHandleCollisionWithStaticObjectNoKey() {
+    public void testHandleCollisionWithStaticObjectNoKey() {
         FireBall fireBall = new FireBall(10, 20);
         StaticObject mockStaticObject = mock(StaticObject.class);
         when(mockStaticObject.getX()).thenReturn(15f);
@@ -109,7 +109,7 @@ class FireBallTest {
     }
 
     @Test
-    void testHandleCollisionWithEnemy() {
+    public void testHandleCollisionWithEnemy() {
         FireBall fireBall = new FireBall(10, 20);
         Enemy mockEnemy = mock(Enemy.class);
         when(mockEnemy.getLives()).thenReturn(5);
@@ -123,7 +123,7 @@ class FireBallTest {
     }
 
     @Test
-    void testHandleWallCollision() {
+    public void testHandleWallCollision() {
         FireBall fireBall = new FireBall(10, 20);
 
         // Handle wall collision
@@ -135,7 +135,7 @@ class FireBallTest {
     }
 
     @Test
-    void testGetVirtX() {
+    public void testGetVirtX() {
         FireBall fireBall = new FireBall(10, 20);
         Camera mockCamera = mock(Camera.class);
         when(mockCamera.getLeftCamLimit()).thenReturn(5f);
@@ -145,7 +145,7 @@ class FireBallTest {
     }
 
     @Test
-    void testGetVirtY() {
+    public void testGetVirtY() {
         FireBall fireBall = new FireBall(10, 20);
 
         // Verify virtual Y coordinate
@@ -153,7 +153,7 @@ class FireBallTest {
     }
 
     @Test
-    void testGetImage() {
+    public void testGetImage() {
         FireBall fireBall = new FireBall(10, 20);
 
         // Verify image

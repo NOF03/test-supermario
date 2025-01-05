@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 class ViewerPauseTest {
 
     @Test
-    void testDraw() throws Exception {
+    public void testDraw() throws Exception {
         // Arrange
         GeneralGui mockGui = mock(GeneralGui.class);
         StatePause mockStatePause = mock(StatePause.class);

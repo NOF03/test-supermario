@@ -14,7 +14,6 @@ import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 class StateGameTest {
@@ -25,7 +24,7 @@ class StateGameTest {
     private Viewer mockViewer;
 
     @BeforeEach
-    void setUp() throws IOException {
+    public void setUp() throws IOException {
         mockGui = mock(LanternaGui.class);
         mockGame = mock(Game.class);
         mockViewer = mock(Viewer.class);
@@ -35,26 +34,26 @@ class StateGameTest {
     }
 
     @Test
-    void testInitialState() {
+    public void testInitialState() {
         assertThat(stateGame.getState()).isEqualTo(2);
         assertThat(stateGame.isGameOver()).isFalse();
     }
 
     @Test
-    void testGetAndSetLevel() {
+    public void testGetAndSetLevel() {
         Level mockLevel = mock(Level.class);
         stateGame.setLevel(mockLevel);
         assertThat(stateGame.getLevel()).isSameAs(mockLevel);
     }
 
     @Test
-    void testDraw() throws IOException {
+    public void testDraw() throws IOException {
         stateGame.draw(mockGui);
         verify(mockViewer).draw(stateGame, mockGui); // Verify interaction with the mock viewer
     }
 
     @Test
-    void testDrawThrowsRuntimeException() throws IOException {
+    public void testDrawThrowsRuntimeException() throws IOException {
         GeneralGui mockGui = mock(GeneralGui.class);
         Viewer mockViewer = mock(Viewer.class);
         stateGame.setViewer(mockViewer);
@@ -67,7 +66,7 @@ class StateGameTest {
     }
 
     @Test
-    void testGetModel() {
+    public void testGetModel() {
         Level mockLevel = mock(Level.class);
         stateGame.setLevel(mockLevel);
 
@@ -77,7 +76,7 @@ class StateGameTest {
     }
 
     @Test
-    void testSetGameOver() {
+    public void testSetGameOver() {
         stateGame.setGameOver(true);
         assertThat(stateGame.isGameOver()).isTrue();
 
@@ -86,7 +85,7 @@ class StateGameTest {
     }
 
     @Test
-    void testStep() throws IOException {
+    public void testStep() throws IOException {
         ControllerGame mockController = mock(ControllerGame.class);
         stateGame.setController(mockController);
 
@@ -100,7 +99,7 @@ class StateGameTest {
     }
 
     @Test
-    void testResetLevel() throws IOException {
+    public void testResetLevel() throws IOException {
         Mario mario = stateGame.getLevel().getMario(); // Use real Mario instance
         Level initialLevel = stateGame.getLevel();
 
@@ -113,7 +112,7 @@ class StateGameTest {
     }
 
     @Test
-    void testNextLevel() throws IOException {
+    public void testNextLevel() throws IOException {
         Mario mario = stateGame.getLevel().getMario();
         int initialLevelNumber = stateGame.getLeveln();
 

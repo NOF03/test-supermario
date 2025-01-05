@@ -23,7 +23,7 @@ class LanternaGuiTest {
     private TextGraphics mockTextGraphics;
 
     @BeforeEach
-    void setUp() throws IOException {
+    public void setUp() throws IOException {
         mockScreen = mock(Screen.class);
         mockSpriteBuilder = mock(SpriteBuilder.class);
         mockTextGraphics = mock(TextGraphics.class);
@@ -42,7 +42,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testSetScreenAndBehavior() throws IOException {
+    public void testSetScreenAndBehavior() throws IOException {
         // Arrange
         Screen newScreen = mock(Screen.class);
 
@@ -55,7 +55,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testDrawMenuTextWithoutColor() {
+    public void testDrawMenuTextWithoutColor() {
         gui.drawMenuText(10, 20, "Hello");
 
         // Verify the `loadImage` method is called for each character
@@ -64,14 +64,14 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testDrawMenuTextWithColor() {
+    public void testDrawMenuTextWithColor() {
         gui.drawMenuText(10, 20, "Hi", "yellow");
 
         verify(mockSpriteBuilder, times(2)).loadImage(anyString());
     }
 
     @Test
-    void testDrawMenuText() {
+    public void testDrawMenuText() {
         gui.drawMenuText(10, 20, "Hello: My name is Mario! - How are you? I am fine.");
 
         // Verify the `loadImage` method is called for each character
@@ -81,7 +81,7 @@ class LanternaGuiTest {
 
 
     @Test
-    void testDrawPixel() {
+    public void testDrawPixel() {
         gui.drawPixel(5, 10, "#00ff00");
 
         verify(mockTextGraphics).setForegroundColor(TextColor.Factory.fromString("#00ff00"));
@@ -89,7 +89,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testIsTransparent() {
+    public void testIsTransparent() {
         BufferedImage mockImage = mock(BufferedImage.class);
         when(mockImage.getRGB(0, 0)).thenReturn(0x00FFFFFF); // Fully transparent pixel
 
@@ -100,7 +100,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testDrawImage() {
+    public void testDrawImage() {
         BufferedImage mockImage = mock(BufferedImage.class);
         when(mockImage.getWidth()).thenReturn(2);
         when(mockImage.getHeight()).thenReturn(2);
@@ -114,7 +114,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testDrawImageWithTransparentPixels() {
+    public void testDrawImageWithTransparentPixels() {
         BufferedImage mockImage = mock(BufferedImage.class);
         when(mockImage.getWidth()).thenReturn(2);
         when(mockImage.getHeight()).thenReturn(2);
@@ -131,7 +131,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testDrawMenuImageWithoutColor() {
+    public void testDrawMenuImageWithoutColor() {
         gui.drawMenuImage(5, 10, "menu.png");
 
         // Verify that the image is loaded and drawn
@@ -140,7 +140,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testDrawMenuImageWithTransparentPixels() {
+    public void testDrawMenuImageWithTransparentPixels() {
         BufferedImage mockImage = mock(BufferedImage.class);
         when(mockImage.getWidth()).thenReturn(2);
         when(mockImage.getHeight()).thenReturn(2);
@@ -157,7 +157,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testDrawGameOver() throws IOException {
+    public void testDrawGameOver() throws IOException {
         gui.drawGameOver();
 
         verify(mockSpriteBuilder).loadImage("gameOver.png");
@@ -165,7 +165,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testClear() {
+    public void testClear() {
         gui.clear();
 
         verify(mockScreen).newTextGraphics();
@@ -173,14 +173,14 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testRefresh() throws IOException {
+    public void testRefresh() throws IOException {
         gui.refresh();
 
         verify(mockScreen).refresh();
     }
 
     @Test
-    void testGetNextActionWithArrowKeys() throws IOException {
+    public void testGetNextActionWithArrowKeys() throws IOException {
         KeyStroke mockKeyStroke = mock(KeyStroke.class);
         when(mockKeyStroke.getKeyType()).thenReturn(KeyType.ArrowUp);
         when(mockScreen.pollInput()).thenReturn(mockKeyStroke);
@@ -191,7 +191,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_NullKeyStroke() throws IOException {
+    public void testGetNextAction_NullKeyStroke() throws IOException {
         when(mockScreen.pollInput()).thenReturn(null);
 
         GeneralGui.ACTION action = gui.getNextAction();
@@ -200,7 +200,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_EOFKeyStroke() throws IOException {
+    public void testGetNextAction_EOFKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.EOF);
         when(mockScreen.pollInput()).thenReturn(keyStroke);
@@ -211,7 +211,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_QuitKeyStroke() throws IOException {
+    public void testGetNextAction_QuitKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.Character);
         when(keyStroke.getCharacter()).thenReturn('q');
@@ -223,7 +223,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_ArrowUpKeyStroke() throws IOException {
+    public void testGetNextAction_ArrowUpKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowUp);
         when(mockScreen.pollInput()).thenReturn(keyStroke);
@@ -234,7 +234,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_ArrowRightKeyStroke() throws IOException {
+    public void testGetNextAction_ArrowRightKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowRight);
         when(mockScreen.pollInput()).thenReturn(keyStroke);
@@ -245,7 +245,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_ArrowDownKeyStroke() throws IOException {
+    public void testGetNextAction_ArrowDownKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowDown);
         when(mockScreen.pollInput()).thenReturn(keyStroke);
@@ -256,7 +256,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_ArrowLeftKeyStroke() throws IOException {
+    public void testGetNextAction_ArrowLeftKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowLeft);
         when(mockScreen.pollInput()).thenReturn(keyStroke);
@@ -267,7 +267,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_ThrowBallKeyStroke() throws IOException {
+    public void testGetNextAction_ThrowBallKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.Character);
         when(keyStroke.getCharacter()).thenReturn('b');
@@ -279,7 +279,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_SelectKeyStroke() throws IOException {
+    public void testGetNextAction_SelectKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.Enter);
         when(mockScreen.pollInput()).thenReturn(keyStroke);
@@ -290,7 +290,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_UnknownKeyStroke() throws IOException {
+    public void testGetNextAction_UnknownKeyStroke() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.Tab); // Example of an unknown key
         when(mockScreen.pollInput()).thenReturn(keyStroke);
@@ -301,7 +301,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_ThrowBallKeyStrokeFailed1() throws IOException {
+    public void testGetNextAction_ThrowBallKeyStrokeFailed1() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.Enter);
         when(keyStroke.getCharacter()).thenReturn('b');
@@ -313,7 +313,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_ThrowBallKeyStrokeFailed2() throws IOException {
+    public void testGetNextAction_ThrowBallKeyStrokeFailed2() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.Character);
         when(keyStroke.getCharacter()).thenReturn('d');
@@ -325,7 +325,7 @@ class LanternaGuiTest {
     }
 
     @Test
-    void testGetNextAction_ThrowBallKeyStrokeFailed3() throws IOException {
+    public void testGetNextAction_ThrowBallKeyStrokeFailed3() throws IOException {
         KeyStroke keyStroke = mock(KeyStroke.class);
         when(keyStroke.getKeyType()).thenReturn(KeyType.Enter);
         when(keyStroke.getCharacter()).thenReturn('d');
@@ -338,7 +338,7 @@ class LanternaGuiTest {
 
 
     @Test
-    void testGetNextActionWithQuit() throws IOException {
+    public void testGetNextActionWithQuit() throws IOException {
         KeyStroke mockKeyStroke = mock(KeyStroke.class);
         when(mockKeyStroke.getKeyType()).thenReturn(KeyType.Character);
         when(mockKeyStroke.getCharacter()).thenReturn('q');

@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 class MushroomSuperTest {
 
     @Test
-    void testActivateWhenMarioIsNotBigOrFire() {
+    public void testActivateWhenMarioIsNotBigOrFire() {
         MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
         Mario mockMario = mock(Mario.class);
         when(mockMario.isStateBig()).thenReturn(false);
@@ -23,7 +23,7 @@ class MushroomSuperTest {
     }
 
     @Test
-    void testActivateWhenMarioIsBigOrFire() {
+    public void testActivateWhenMarioIsBigOrFire() {
         MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
         Mario mockMario = mock(Mario.class);
         when(mockMario.isStateBig()).thenReturn(true);
@@ -36,7 +36,7 @@ class MushroomSuperTest {
     }
 
     @Test
-    void testActivateWhenMarioIsNotBigAndFire() {
+    public void testActivateWhenMarioIsNotBigAndFire() {
         MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
         Mario mockMario = mock(Mario.class);
         when(mockMario.isStateBig()).thenReturn(false);
@@ -49,7 +49,7 @@ class MushroomSuperTest {
     }
 
     @Test
-    void testActivateWhenMarioIsBigAndNotFire() {
+    public void testActivateWhenMarioIsBigAndNotFire() {
         MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
         Mario mockMario = mock(Mario.class);
         when(mockMario.isStateBig()).thenReturn(true);
@@ -62,7 +62,7 @@ class MushroomSuperTest {
     }
 
     @Test
-    void testGetVirtX() {
+    public void testGetVirtX() {
         MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
         Camera mockCamera = mock(Camera.class);
         when(mockCamera.getLeftCamLimit()).thenReturn(5f);
@@ -71,13 +71,13 @@ class MushroomSuperTest {
     }
 
     @Test
-    void testGetVirtY() {
+    public void testGetVirtY() {
         MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
         assertThat(mushroomSuper.getVirtY()).isEqualTo(20);
     }
 
     @Test
-    void testGetImage() {
+    public void testGetImage() {
         MushroomSuper mushroomSuper = new MushroomSuper(10, 20);
         assertThat(mushroomSuper.getImage()).isEqualTo("superMushroom.png");
     }

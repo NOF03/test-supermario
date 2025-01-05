@@ -30,7 +30,7 @@ class ControllerCoinTest {
     private Mario mario;
 
     @Test
-    void testStep() {
+    public void testStep() {
         long time = 1000L;
         GeneralGui.ACTION action = GeneralGui.ACTION.RIGHT;
 
@@ -43,7 +43,7 @@ class ControllerCoinTest {
     }
 
     @Test
-    void testUpdateStatus_whenCoinTimerIsZeroOrNegative() {
+    public void testUpdateStatus_whenCoinTimerIsZeroOrNegative() {
         Coin coin1 = mock(Coin.class);
         Coin coin2 = mock(Coin.class);
         List<Coin> coins = new ArrayList<>();
@@ -63,7 +63,7 @@ class ControllerCoinTest {
     }
 
     @Test
-    void testUpdateStatus_whenCoinTimerIsPositive() {
+    public void testUpdateStatus_whenCoinTimerIsPositive() {
         Coin coin1 = mock(Coin.class);
         Coin coin2 = mock(Coin.class);
         List<Coin> coins = new ArrayList<>();
